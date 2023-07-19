@@ -21,7 +21,7 @@
     color: rgba(255, 255, 255, 0.87);
 
     background-image: url("$lib/background.png");
-    background-size: auto;
+    background-size: cover;
     background-position: top;
 
     font-synthesis: none;
