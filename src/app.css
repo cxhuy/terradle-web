@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: "Andy-Bold";
+    src: url("$lib/fonts/Andy-Bold.ttf.woff") format("woff"),
+        url("$lib/fonts/Andy-Bold.ttf.svg#Andy-Bold") format("svg"),
+        url("$lib/fonts/Andy-Bold.ttf.eot"),
+        url("$lib/fonts/Andy-Bold.ttf.eot?#iefix") format("embedded-opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    font-family: Andy-Bold;
+    line-height: 1.5;
+    font-weight: 400;
+
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+}
