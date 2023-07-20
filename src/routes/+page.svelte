@@ -9,14 +9,38 @@
     >
         <div class="w-full flex gap-2 mb-2">
             <div
-                class="w-full h-20 bg-[#2C3A74] border-[1.5px] border-black rounded-lg"
-            />
+                class="w-full h-fit bg-[#2C3A74] border-[1.5px] border-black rounded-lg text-xs text-center flex flex-col py-1 px-2"
+            >
+                <img
+                    class="my-1 h-8 object-contain"
+                    src="src/lib/images/weapons_hint/selling_price_hint.png"
+                    alt="gold coin"
+                />
+                <p class="mx-auto">Selling price</p>
+                <p class="mx-auto">in 5 tries...</p>
+            </div>
             <div
-                class="w-full h-20 bg-[#2C3A74] border-[1.5px] border-black rounded-lg"
-            />
+                class="w-full h-fit bg-[#2C3A74] border-[1.5px] border-black rounded-lg text-xs text-center flex flex-col py-1 px-2"
+            >
+                <img
+                    class="my-1 h-8 object-contain"
+                    src="src/lib/images/weapons_hint/tooltip_hint.png"
+                    alt="gold coin"
+                />
+                <p class="mx-auto">Tooltip</p>
+                <p class="mx-auto">in 10 tries...</p>
+            </div>
             <div
-                class="w-full h-20 bg-[#2C3A74] border-[1.5px] border-black rounded-lg"
-            />
+                class="w-full h-fit bg-[#2C3A74] border-[1.5px] border-black rounded-lg text-xs text-center flex flex-col py-1 px-2"
+            >
+                <img
+                    class="my-1 h-8 object-contain"
+                    src="src/lib/images/weapons_hint/image_hint.png"
+                    alt="gold coin"
+                />
+                <p class="mx-auto">Image</p>
+                <p class="mx-auto">in 15 tries...</p>
+            </div>
         </div>
         <div class="w-full">
             <input
