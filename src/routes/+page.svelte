@@ -20,7 +20,7 @@
         </div>
         <div class="w-full">
             <input
-                class="w-full h-9 bg-[#2C3A74] border-[1.5px] border-[#4157A4] rounded-lg"
+                class="w-full h-9 bg-[#2C3A74] border-[1.5px] border-[#4157A4] rounded-lg text-xl p-2"
                 type="text"
                 placeholder="Type any weapon to begin..."
             />
