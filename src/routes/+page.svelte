@@ -85,7 +85,7 @@
             </div>
             <div class="w-full">
                 <form autocomplete="off" on:submit|preventDefault={null}>
-                    <div class="flex">
+                    <div class="flex gap-1">
                         <input
                             id="weapon-input"
                             class="w-full h-9 bg-[#2C3A74] border-[1.5px] border-[#4157A4] rounded-lg text-xl p-2"
@@ -97,7 +97,7 @@
                         />
                         <button on:click|preventDefault={null}>
                             <img
-                                class="ml-1 w-9 h-9 bg-[#2C3A74] border-[1.5px] border-[#4157A4] rounded-lg object-fill"
+                                class="w-9 h-9 bg-[#2C3A74] border-[1.5px] border-[#4157A4] rounded-lg object-fill"
                                 src="src/lib/images/playbutton.png"
                                 alt=""
                             />
