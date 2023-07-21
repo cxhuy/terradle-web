@@ -82,20 +82,28 @@
             </div>
             <div class="w-full">
                 <form autocomplete="off" on:submit|preventDefault={null}>
-                    <input
-                        id="weapon-input"
-                        class="w-full h-9 bg-[#2C3A74] border-[1.5px] border-[#4157A4] rounded-lg text-xl p-2"
-                        type="text"
-                        placeholder="Type any weapon to begin..."
-                        bind:this={searchInput}
-                        bind:value={inputValue}
-                        on:input={filterWeapons}
-                    />
+                    <div class="flex">
+                        <input
+                            id="weapon-input"
+                            class="w-full h-9 bg-[#2C3A74] border-[1.5px] border-[#4157A4] rounded-lg text-xl p-2"
+                            type="text"
+                            placeholder="Type any weapon to begin..."
+                            bind:this={searchInput}
+                            bind:value={inputValue}
+                            on:input={filterWeapons}
+                        />
+                        <button on:click|preventDefault={null}>
+                            <img
+                                class="ml-1 w-9 h-9 bg-[#2C3A74] border-[1.5px] border-[#4157A4] rounded-lg object-fill"
+                                src="src/lib/images/playbutton.png"
+                                alt=""
+                            />
+                        </button>
+                    </div>
 
                     {#if filteredWeapons.length > 0}
                         <ul
                             class="mt-4 mx-auto w-80 max-h-56 h-fit border-[1.5px] border-black rounded-xl absolute left-1/2 translate-x-[-50%] overflow-y-scroll"
-                            id="autocomplete-items-list"
                         >
                             {#each filteredWeapons as weapon, i}
                                 <li
