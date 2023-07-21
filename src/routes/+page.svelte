@@ -5,6 +5,7 @@
     let weaponClicked: boolean = false;
 
     const filterWeapons = () => {
+        handleFilteredWeaponsOpen();
         weaponClicked = false;
         let storageArr: any[] = [];
         if (inputValue) {
@@ -36,6 +37,18 @@
     $: if (!inputValue) {
         filteredWeapons = [];
     }
+
+    let filteredWeaponsOpen: boolean = false;
+
+    const handleFilteredWeaponsOpen = () => {
+        filteredWeaponsOpen = true;
+        document.body.addEventListener("click", handleFilteredWeaponsClose);
+    };
+
+    const handleFilteredWeaponsClose = () => {
+        filteredWeaponsOpen = false;
+        document.body.removeEventListener("click", handleFilteredWeaponsClose);
+    };
 </script>
 
 <main class="-translate-y-4">
@@ -93,18 +106,18 @@
                             placeholder="Type any weapon to begin..."
                             bind:this={searchInput}
                             bind:value={inputValue}
-                            on:input={filterWeapons}
+                            on:input|stopPropagation={filterWeapons}
                         />
                         <button on:click|preventDefault={null}>
                             <img
-                                class="w-9 h-9 bg-[#2C3A74] border-[1.5px] border-[#4157A4] rounded-lg object-fill"
+                                class="w-12 h-9 bg-[#2C3A74] border-[1.5px] border-[#4157A4] rounded-lg object-fill"
                                 src="src/lib/images/playbutton.png"
                                 alt=""
                             />
                         </button>
                     </div>
 
-                    {#if filteredWeapons.length > 0}
+                    {#if filteredWeapons.length > 0 && filteredWeaponsOpen}
                         <ul
                             class="mt-4 mx-auto w-80 max-h-56 h-fit bg-[#2C3A74] border-[1.5px] border-black rounded-xl absolute left-1/2 translate-x-[-50%] overflow-y-scroll"
                         >
@@ -124,7 +137,7 @@
                                 </li>
                             {/each}
                         </ul>
-                    {:else if inputValue != "" && !weaponClicked}
+                    {:else if inputValue != "" && !weaponClicked && filteredWeaponsOpen}
                         <ul
                             class="mt-4 mx-auto w-80 max-h-56 h-fit border-[1.5px] border-black rounded-xl absolute left-1/2 translate-x-[-50%] overflow-y-scroll"
                         >
