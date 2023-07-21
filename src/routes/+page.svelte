@@ -1,3 +1,7 @@
+<script>
+    export let data;
+</script>
+
 <main class="-translate-y-4">
     <div
         class="mx-auto translate-y-1/2 w-64 h-14 bg-[#495EAB] border-[1.5px] border-black rounded-3xl flex items-center"
