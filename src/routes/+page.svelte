@@ -2,8 +2,10 @@
     export let data;
 
     let filteredWeapons: any[] = [];
+    let weaponClicked: boolean = false;
 
     const filterWeapons = () => {
+        weaponClicked = false;
         let storageArr: any[] = [];
         if (inputValue) {
             for (var i = 0; i < data.weapons.length; i++) {
@@ -22,6 +24,7 @@
     };
 
     const setInputVal = (weaponName: string) => {
+        weaponClicked = true;
         inputValue = weaponName;
         filteredWeapons = [];
         document.querySelector("#weapon-input")?.focus();
@@ -121,6 +124,16 @@
                                 </li>
                             {/each}
                         </ul>
+                    {:else if inputValue != "" && !weaponClicked}
+                        <ul
+                            class="mt-4 mx-auto w-80 max-h-56 h-fit border-[1.5px] border-black rounded-xl absolute left-1/2 translate-x-[-50%] overflow-y-scroll"
+                        >
+                            <li
+                                class="py-2 pl-3 flex items-center bg-[#2C3A74] w-full"
+                            >
+                                <p>No results.</p>
+                            </li>
+                        </ul>
                     {/if}
                 </form>
             </div>
@@ -137,6 +150,6 @@
         color: #808080;
         font-size: 1.25rem; /* 20px */
         line-height: 1.75rem; /* 28px */
-        text-align: center;
+        text-align: left;
     }
 </style>
