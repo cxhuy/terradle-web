@@ -21,6 +21,12 @@
         filteredWeapons = storageArr;
     };
 
+    const setInputVal = (weaponName: string) => {
+        inputValue = weaponName;
+        filteredWeapons = [];
+        document.querySelector("#weapon-input")?.focus();
+    };
+
     let searchInput: HTMLInputElement;
     let inputValue: string = "";
 
@@ -75,14 +81,40 @@
                 </div>
             </div>
             <div class="w-full">
-                <input
-                    class="w-full h-9 bg-[#2C3A74] border-[1.5px] border-[#4157A4] rounded-lg text-xl p-2"
-                    type="text"
-                    placeholder="Type any weapon to begin..."
-                    bind:this={searchInput}
-                    bind:value={inputValue}
-                    on:input={filterWeapons}
-                />
+                <form autocomplete="off" on:submit|preventDefault={null}>
+                    <input
+                        id="weapon-input"
+                        class="w-full h-9 bg-[#2C3A74] border-[1.5px] border-[#4157A4] rounded-lg text-xl p-2"
+                        type="text"
+                        placeholder="Type any weapon to begin..."
+                        bind:this={searchInput}
+                        bind:value={inputValue}
+                        on:input={filterWeapons}
+                    />
+
+                    {#if filteredWeapons.length > 0}
+                        <ul
+                            class="mt-4 mx-auto w-80 max-h-56 h-fit border-[1.5px] border-black rounded-xl absolute left-1/2 translate-x-[-50%] overflow-y-scroll"
+                            id="autocomplete-items-list"
+                        >
+                            {#each filteredWeapons as weapon, i}
+                                <li
+                                    class="py-2 pl-3 flex items-center cursor-pointer bg-[#2C3A74] hover:border-[2px] hover:border-sky-200 w-full"
+                                    on:click={() => setInputVal(weapon.name)}
+                                >
+                                    <img
+                                        class="mr-4 w-8 h-8 object-contain"
+                                        src={"src/lib/images/weapons/" +
+                                            weapon.id +
+                                            ".png"}
+                                        alt={weapon.name}
+                                    />
+                                    <p>{weapon.name}</p>
+                                </li>
+                            {/each}
+                        </ul>
+                    {/if}
+                </form>
             </div>
         </div>
     </div>
