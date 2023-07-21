@@ -106,11 +106,11 @@
 
                     {#if filteredWeapons.length > 0}
                         <ul
-                            class="mt-4 mx-auto w-80 max-h-56 h-fit border-[1.5px] border-black rounded-xl absolute left-1/2 translate-x-[-50%] overflow-y-scroll"
+                            class="mt-4 mx-auto w-80 max-h-56 h-fit bg-[#2C3A74] border-[1.5px] border-black rounded-xl absolute left-1/2 translate-x-[-50%] overflow-y-scroll"
                         >
                             {#each filteredWeapons as weapon, i}
                                 <li
-                                    class="py-2 pl-3 flex items-center cursor-pointer bg-[#2C3A74] hover:border-[2px] hover:border-sky-200 w-full"
+                                    class="py-2 pl-3 flex items-center cursor-pointer hover:border-[2px] hover:border-sky-200 hover:rounded-xl w-full"
                                     on:click={() => setInputVal(weapon.name)}
                                 >
                                     <img
