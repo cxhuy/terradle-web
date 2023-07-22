@@ -49,6 +49,46 @@
         filteredWeaponsOpen = false;
         document.body.removeEventListener("click", handleFilteredWeaponsClose);
     };
+
+    let weaponNames: string[] = [];
+
+    for (let i = 0; i < data.weapons.length; i++) {
+        weaponNames.push(data.weapons[i].name);
+    }
+
+    let correctWeapon =
+        data.weapons[Math.floor(Math.random() * data.weapons.length)];
+    console.log(correctWeapon);
+    let submittedWeapons: any[] = [];
+
+    const submitValue = () => {
+        // console.log(correctWeapon.speed);
+        // console.log(speeds.indexOf(correctWeapon.speed));
+        // console.log(weapons[weaponNames.indexOf(inputValue)].data.speed);
+        // console.log(
+        //     speeds.indexOf(weapons[weaponNames.indexOf(inputValue)].data.speed)
+        // );
+        if (inputValue && inputValue == correctWeapon.name) {
+            alert("You Win!");
+        } else if (inputValue && weaponNames.includes(inputValue)) {
+            console.log(data.weapons[weaponNames.indexOf(inputValue)]);
+            addItem(data.weapons[weaponNames.indexOf(inputValue)]);
+        } else {
+        }
+
+        // if ($storeFE.length > 19) {
+        //     if ("tooltip" in correctWeapon.data) {
+        //         alert("Hint:\n" + correctWeapon.data.tooltip.join("\n"));
+        //     } else {
+        //         alert("Hint: No tooltip for this item");
+        //     }
+        // }
+        console.log(submittedWeapons);
+    };
+
+    function addItem(weapon: any) {
+        submittedWeapons = [weapon, ...submittedWeapons];
+    }
 </script>
 
 <main class="-translate-y-4">
@@ -97,7 +137,7 @@
                 </div>
             </div>
             <div class="w-full">
-                <form autocomplete="off" on:submit|preventDefault={null}>
+                <form autocomplete="off" on:submit|preventDefault={submitValue}>
                     <div class="flex gap-1">
                         <input
                             id="weapon-input"
@@ -108,7 +148,7 @@
                             bind:value={inputValue}
                             on:input|stopPropagation={filterWeapons}
                         />
-                        <button on:click|preventDefault={null}>
+                        <button on:click|preventDefault={submitValue}>
                             <img
                                 class="w-12 h-9 bg-[#2C3A74] border-[1.5px] border-[#4157A4] rounded-lg object-fill"
                                 src="src/lib/images/playbutton.png"
