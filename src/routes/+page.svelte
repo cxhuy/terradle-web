@@ -219,7 +219,7 @@
                         : 'bg-red-500'} border-2 border-black flex items-center text-center"
                 >
                     <div class="flex items-center mx-auto">
-                        <p>{weapon.damage}</p>
+                        <p class="w-14">{weapon.damage}</p>
                         <p>↑</p>
                     </div>
                 </div>
@@ -230,7 +230,7 @@
                         : 'bg-red-500'} border-2 border-black flex items-center text-center"
                 >
                     <div class="flex items-center mx-auto">
-                        <p>{weapon.knockback}</p>
+                        <p class="w-14">{weapon.knockback}</p>
                         <p>↑</p>
                     </div>
                 </div>
@@ -240,7 +240,7 @@
                         : 'bg-red-500'} border-2 border-black flex items-center text-center"
                 >
                     <div class="flex items-center mx-auto">
-                        <p>{weapon.speed}</p>
+                        <p class="w-14">{weapon.speed}</p>
                         <p>↑</p>
                     </div>
                 </div>
