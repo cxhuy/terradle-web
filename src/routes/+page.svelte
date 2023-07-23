@@ -129,9 +129,9 @@
             class="mx-auto w-80 h-fit bg-[#1C2443] border-[1.5px] border-black rounded-xl flex flex-col pt-8 px-2 pb-2"
         >
             <div class="w-full flex gap-2 mb-2">
-                <button
+                <button disabled={5 - submittedWeapons.length > 0}
                     class="w-full h-fit {5 - submittedWeapons.length > 0
-                        ? 'disabled cursor-default'
+                        ? 'cursor-default'
                         : ''}"
                     on:click={() => handleHints(0)}
                 >
@@ -155,9 +155,9 @@
                         </p>
                     </div>
                 </button>
-                <button
+                <button disabled={10 - submittedWeapons.length > 0}
                     class="w-full h-fit {10 - submittedWeapons.length > 0
-                        ? 'disabled cursor-default'
+                        ? 'cursor-default'
                         : ''}"
                     on:click={() => handleHints(1)}
                 >
@@ -181,9 +181,9 @@
                         </p>
                     </div>
                 </button>
-                <button
+                <button disabled={15 - submittedWeapons.length > 0}
                     class="w-full h-fit {15 - submittedWeapons.length > 0
-                        ? 'disabled cursor-default'
+                        ? 'cursor-default'
                         : ''}"
                     on:click={() => handleHints(2)}
                 >
