@@ -99,6 +99,7 @@
             if (inputValue == correctWeapon.name) {
                 alert("You Win!");
             }
+            inputValue = "";
         }
     };
 </script>
