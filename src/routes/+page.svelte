@@ -261,7 +261,7 @@
                         : 'bg-red-500'} border-2 border-black flex items-center text-center"
                 >
                     <div class="flex items-center mx-auto">
-                        <p>{weapon.autoswing}</p>
+                        <p>{weapon.autoswing ? "O" : "X"}</p>
                     </div>
                 </div>
                 <div
@@ -270,7 +270,7 @@
                         : 'bg-red-500'} border-2 border-black flex items-center text-center"
                 >
                     <div class="flex items-center mx-auto">
-                        <p>{weapon.material}</p>
+                        <p>{weapon.material ? "O" : "X"}</p>
                     </div>
                 </div>
                 <div
