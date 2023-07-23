@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { fade } from "svelte/transition";
     export let data;
 
     let filteredWeapons: any[] = [];
@@ -294,6 +295,7 @@
     {#if submittedWeapons.length}
         <div
             class="mt-4 mx-auto w-fit bg-black/60 flex gap-1 justify-center items-center text-center"
+            transition:fade
         >
             <div class="w-20">Item</div>
             <div class="w-20">Damage Type</div>
@@ -308,8 +310,11 @@
     {/if}
 
     <ul>
-        {#each submittedWeapons as weapon}
-            <li class="mt-4 flex gap-1 justify-center items-center">
+        {#each submittedWeapons as weapon (weapon.id)}
+            <li
+                class="mt-4 flex gap-1 justify-center items-center"
+                transition:fade
+            >
                 <div
                     class="w-20 h-16 bg-black/50 border-2 border-black flex items-center text-center"
                 >
