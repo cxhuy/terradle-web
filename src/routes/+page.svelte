@@ -114,39 +114,63 @@
             class="mx-auto w-80 h-fit bg-[#1C2443] border-[1.5px] border-black rounded-xl flex flex-col pt-8 px-2 pb-2"
         >
             <div class="w-full flex gap-2 mb-2">
-                <div
-                    class="w-full h-fit bg-[#2C3A74] border-[1.5px] border-black rounded-lg text-xs text-center flex flex-col py-1 px-2"
-                >
-                    <img
-                        class="my-1 h-8 object-contain"
-                        src="src/lib/images/weapons_hint/selling_price_hint.png"
-                        alt="gold coin"
-                    />
-                    <p class="mx-auto">Selling price</p>
-                    <p class="mx-auto">in 5 tries...</p>
-                </div>
-                <div
-                    class="w-full h-fit bg-[#2C3A74] border-[1.5px] border-black rounded-lg text-xs text-center flex flex-col py-1 px-2"
-                >
-                    <img
-                        class="my-1 h-8 object-contain"
-                        src="src/lib/images/weapons_hint/tooltip_hint.png"
-                        alt="gold coin"
-                    />
-                    <p class="mx-auto">Tooltip</p>
-                    <p class="mx-auto">in 10 tries...</p>
-                </div>
-                <div
-                    class="w-full h-fit bg-[#2C3A74] border-[1.5px] border-black rounded-lg text-xs text-center flex flex-col py-1 px-2"
-                >
-                    <img
-                        class="my-1 h-8 object-contain"
-                        src="src/lib/images/weapons_hint/image_hint.png"
-                        alt="gold coin"
-                    />
-                    <p class="mx-auto">Image</p>
-                    <p class="mx-auto">in 15 tries...</p>
-                </div>
+                <button class="w-full h-fit {5 - submittedWeapons.length > 0 ? 'disabled cursor-default' : ''}">
+                    <div
+                        class="w-full h-fit {5 - submittedWeapons.length > 0 ? 'bg-[#2C3A74]/50 border-black' : 'bg-[#2C3A74]'} border-[1.5px] rounded-lg text-xs text-center flex flex-col py-1 px-2"
+                    >
+                        <img
+                            class="my-1 h-8 object-contain"
+                            src="src/lib/images/weapons_hint/selling_price_hint.png"
+                            alt="gold coin"
+                        />
+                        <p class="mx-auto">Selling price</p>
+                        <p>
+                            {#if 5 - submittedWeapons.length > 0}
+                                in {5 - submittedWeapons.length} tries...
+                            {:else}
+                                click to reveal
+                            {/if}
+                        </p>
+                    </div>
+                </button>
+                <button class="w-full h-fit {10 - submittedWeapons.length > 0 ? 'disabled cursor-default' : ''}">
+                    <div
+                        class="w-full h-fit {10 - submittedWeapons.length > 0 ? 'bg-[#2C3A74]/50 border-black' : 'bg-[#2C3A74]'} border-[1.5px] rounded-lg text-xs text-center flex flex-col py-1 px-2"
+                    >
+                        <img
+                            class="my-1 h-8 object-contain"
+                            src="src/lib/images/weapons_hint/tooltip_hint.png"
+                            alt="gold coin"
+                        />
+                        <p class="mx-auto">Tooltip</p>
+                        <p class="mx-auto">
+                            {#if 10 - submittedWeapons.length > 0}
+                                in {10 - submittedWeapons.length} tries...
+                            {:else}
+                                click to reveal
+                            {/if}
+                        </p>
+                    </div>
+                </button>
+                <button class="w-full h-fit {15 - submittedWeapons.length > 0 ? 'disabled cursor-default' : ''}">
+                    <div
+                        class="w-full h-fit {15 - submittedWeapons.length > 0 ? 'bg-[#2C3A74]/50 border-black' : 'bg-[#2C3A74]'} border-[1.5px] rounded-lg text-xs text-center flex flex-col py-1 px-2"
+                    >
+                        <img
+                            class="my-1 h-8 object-contain"
+                            src="src/lib/images/weapons_hint/image_hint.png"
+                            alt="gold coin"
+                        />
+                        <p class="mx-auto">Image</p>
+                        <p class="mx-auto">
+                            {#if 15 - submittedWeapons.length > 0}
+                                in {15 - submittedWeapons.length} tries...
+                            {:else}
+                                click to reveal
+                            {/if}
+                        </p>
+                    </div>
+                </button>
             </div>
             <div class="w-full">
                 <form autocomplete="off" on:submit|preventDefault={submitValue}>
@@ -326,7 +350,8 @@
                     </div>
                 </div>
                 <div
-                    class="w-20 h-16 {weapon.obtained.join(' ') == correctWeapon.obtained.join(' ')
+                    class="w-20 h-16 {weapon.obtained.join(' ') ==
+                    correctWeapon.obtained.join(' ')
                         ? 'bg-green-500'
                         : 'bg-red-500'} border-2 border-black flex items-center text-center"
                 >
