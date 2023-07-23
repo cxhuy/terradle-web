@@ -4,6 +4,28 @@
     let filteredWeapons: any[] = [];
     let weaponClicked: boolean = false;
 
+    let knockbacks = [
+        "No knockback",
+        "Extremely weak",
+        "Very weak",
+        "Weak",
+        "Average",
+        "Strong",
+        "Very strong",
+        "Extremely strong",
+        "Insane",
+    ];
+
+    let speeds = [
+        "Insanely fast",
+        "Very fast",
+        "Fast",
+        "Average",
+        "Slow",
+        "Very slow",
+        "Extremely slow",
+    ];
+
     const filterWeapons = () => {
         handleFilteredWeaponsOpen();
         weaponClicked = false;
@@ -178,7 +200,9 @@
     </div>
 
     {#if submittedWeapons.length}
-        <div class="mt-4 mx-auto w-fit bg-black/60 flex gap-1 justify-center items-center text-center">
+        <div
+            class="mt-4 mx-auto w-fit bg-black/60 flex gap-1 justify-center items-center text-center"
+        >
             <div class="w-20">Item</div>
             <div class="w-20">Damage Type</div>
             <div class="w-20">Damage</div>
@@ -193,7 +217,7 @@
 
     <ul>
         {#each submittedWeapons as weapon}
-            <li class="mt-4 flex gap-1 justify-center items-center ">
+            <li class="mt-4 flex gap-1 justify-center items-center">
                 <div
                     class="w-20 h-16 bg-black/50 border-2 border-slate-200 flex items-center text-center"
                 >
@@ -220,7 +244,11 @@
                 >
                     <div class="flex items-center mx-auto">
                         <p class="w-14">{weapon.damage}</p>
-                        <p>↑</p>
+                        {#if parseInt(weapon.damage) < parseInt(correctWeapon.damage)}
+                            <p>↑</p>
+                        {:else if parseInt(weapon.damage) > parseInt(correctWeapon.damage)}
+                            <p>↓</p>
+                        {/if}
                     </div>
                 </div>
                 <div
@@ -231,7 +259,11 @@
                 >
                     <div class="flex items-center mx-auto">
                         <p class="w-14">{weapon.knockback}</p>
-                        <p>↑</p>
+                        {#if knockbacks.indexOf(weapon.knockback) < knockbacks.indexOf(correctWeapon.knockback)}
+                            <p>↑</p>
+                        {:else if knockbacks.indexOf(weapon.knockback) > knockbacks.indexOf(correctWeapon.knockback)}
+                            <p>↓</p>
+                        {/if}
                     </div>
                 </div>
                 <div
@@ -241,7 +273,11 @@
                 >
                     <div class="flex items-center mx-auto">
                         <p class="w-14">{weapon.speed}</p>
-                        <p>↑</p>
+                        {#if speeds.indexOf(weapon.speed) > speeds.indexOf(correctWeapon.speed)}
+                            <p>↑</p>
+                        {:else if speeds.indexOf(weapon.speed) < speeds.indexOf(correctWeapon.speed)}
+                            <p>↓</p>
+                        {/if}
                     </div>
                 </div>
                 <div
@@ -250,8 +286,18 @@
                         : 'bg-red-500'} border-2 border-black flex items-center text-center"
                 >
                     <div class="flex items-center mx-auto">
-                        <img class="w-14 max-h-4 object-contain" src={"src/lib/images/rarity/" + weapon.rarity + ".png"} alt="">
-                        <p>↑</p>
+                        <img
+                            class="w-14 max-h-4 object-contain"
+                            src={"src/lib/images/rarity/" +
+                                weapon.rarity +
+                                ".png"}
+                            alt=""
+                        />
+                        {#if parseInt(weapon.rarity) < parseInt(correctWeapon.rarity)}
+                            <p>↑</p>
+                        {:else if parseInt(weapon.rarity) > parseInt(correctWeapon.rarity)}
+                            <p>↓</p>
+                        {/if}
                     </div>
                 </div>
                 <div
@@ -279,7 +325,11 @@
                         : 'bg-red-500'} border-2 border-black flex items-center text-center"
                 >
                     <div class="flex items-center mx-auto">
-                        <p>{weapon.obtained}</p>
+                        <div class="flex flex-col">
+                            {#each weapon.obtained as obtained}
+                                <p>{obtained}</p>
+                            {/each}
+                        </div>
                     </div>
                 </div>
             </li>
