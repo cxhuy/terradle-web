@@ -250,7 +250,7 @@
                         : 'bg-red-500'} border-2 border-black flex items-center text-center"
                 >
                     <div class="flex items-center mx-auto">
-                        <p>{weapon.rarity}</p>
+                        <img class="w-14 max-h-4 object-contain" src={"src/lib/images/rarity/" + weapon.rarity + ".png"} alt="">
                         <p>↑</p>
                     </div>
                 </div>
