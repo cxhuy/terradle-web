@@ -37,7 +37,8 @@
                     weapon.name
                         .toLowerCase()
                         .includes(inputValue.toLowerCase()) &&
-                    storageArr.indexOf(weapon) == -1
+                    storageArr.indexOf(weapon) == -1 &&
+                    submittedWeapons.indexOf(weapon) == -1
                 ) {
                     storageArr = [...storageArr, weapon];
                 }
@@ -84,13 +85,18 @@
     let submittedWeapons: any[] = [];
 
     const submitValue = () => {
-        if (inputValue && weaponNames.includes(inputValue)) {
-            if (inputValue != correctWeapon.name) {
-                submittedWeapons = [
-                    data.weapons[weaponNames.indexOf(inputValue)],
-                    ...submittedWeapons,
-                ];
-            } else {
+        if (
+            inputValue &&
+            weaponNames.includes(inputValue) &&
+            submittedWeapons.indexOf(
+                data.weapons[weaponNames.indexOf(inputValue)]
+            )
+        ) {
+            submittedWeapons = [
+                data.weapons[weaponNames.indexOf(inputValue)],
+                ...submittedWeapons,
+            ];
+            if (inputValue == correctWeapon.name) {
                 alert("You Win!");
             }
         }
@@ -219,7 +225,7 @@
         {#each submittedWeapons as weapon}
             <li class="mt-4 flex gap-1 justify-center items-center">
                 <div
-                    class="w-20 h-16 bg-black/50 border-2 border-slate-200 flex items-center text-center"
+                    class="w-20 h-16 bg-black/50 border-2 border-black flex items-center text-center"
                 >
                     <img
                         class="w-12 h-8 mx-auto object-contain"
