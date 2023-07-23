@@ -129,7 +129,8 @@
             class="mx-auto w-80 h-fit bg-[#1C2443] border-[1.5px] border-black rounded-xl flex flex-col pt-8 px-2 pb-2"
         >
             <div class="w-full flex gap-2 mb-2">
-                <button disabled={5 - submittedWeapons.length > 0}
+                <button
+                    disabled={5 - submittedWeapons.length > 0}
                     class="w-full h-fit {5 - submittedWeapons.length > 0
                         ? 'cursor-default'
                         : ''}"
@@ -155,7 +156,8 @@
                         </p>
                     </div>
                 </button>
-                <button disabled={10 - submittedWeapons.length > 0}
+                <button
+                    disabled={10 - submittedWeapons.length > 0}
                     class="w-full h-fit {10 - submittedWeapons.length > 0
                         ? 'cursor-default'
                         : ''}"
@@ -181,7 +183,8 @@
                         </p>
                     </div>
                 </button>
-                <button disabled={15 - submittedWeapons.length > 0}
+                <button
+                    disabled={15 - submittedWeapons.length > 0}
                     class="w-full h-fit {15 - submittedWeapons.length > 0
                         ? 'cursor-default'
                         : ''}"
@@ -214,7 +217,7 @@
                     : ''} w-full h-fit p-2 mb-2 bg-[#2C3A74] rounded-lg flex items-center text-center"
             >
                 {#if hintsToShow[0]}
-                    <p class="w-full">{correctWeapon.sell}</p>
+                    <p class="w-full text-[#C1AD4F]">{"Sell price: " + correctWeapon.sell?.replace('Coins', '').toLowerCase()}</p>
                 {:else if hintsToShow[1]}
                     <p class="w-full">
                         {#if correctWeapon.tooltip}
