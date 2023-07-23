@@ -62,33 +62,17 @@
     let submittedWeapons: any[] = [];
 
     const submitValue = () => {
-        // console.log(correctWeapon.speed);
-        // console.log(speeds.indexOf(correctWeapon.speed));
-        // console.log(weapons[weaponNames.indexOf(inputValue)].data.speed);
-        // console.log(
-        //     speeds.indexOf(weapons[weaponNames.indexOf(inputValue)].data.speed)
-        // );
-        if (inputValue && inputValue == correctWeapon.name) {
-            alert("You Win!");
-        } else if (inputValue && weaponNames.includes(inputValue)) {
-            console.log(data.weapons[weaponNames.indexOf(inputValue)]);
-            addItem(data.weapons[weaponNames.indexOf(inputValue)]);
-        } else {
+        if (inputValue && weaponNames.includes(inputValue)) {
+            if (inputValue != correctWeapon.name) {
+                submittedWeapons = [
+                    data.weapons[weaponNames.indexOf(inputValue)],
+                    ...submittedWeapons,
+                ];
+            } else {
+                alert("You Win!");
+            }
         }
-
-        // if ($storeFE.length > 19) {
-        //     if ("tooltip" in correctWeapon.data) {
-        //         alert("Hint:\n" + correctWeapon.data.tooltip.join("\n"));
-        //     } else {
-        //         alert("Hint: No tooltip for this item");
-        //     }
-        // }
-        console.log(submittedWeapons);
     };
-
-    function addItem(weapon: any) {
-        submittedWeapons = [weapon, ...submittedWeapons];
-    }
 </script>
 
 <main class="-translate-y-4">
@@ -192,6 +176,115 @@
             </div>
         </div>
     </div>
+
+    {#if submittedWeapons.length}
+        <div class="mt-4 mx-auto w-fit bg-black/60 flex gap-1 justify-center items-center text-center">
+            <div class="w-20">Item</div>
+            <div class="w-20">Damage Type</div>
+            <div class="w-20">Damage</div>
+            <div class="w-20">Knockback</div>
+            <div class="w-20">Speed</div>
+            <div class="w-20">Rarity</div>
+            <div class="w-20">Autoswing</div>
+            <div class="w-20">Material</div>
+            <div class="w-20">Obtained</div>
+        </div>
+    {/if}
+
+    <ul>
+        {#each submittedWeapons as weapon}
+            <li class="mt-4 flex gap-1 justify-center items-center ">
+                <div
+                    class="w-20 h-16 bg-black/50 border-2 border-slate-200 flex items-center text-center"
+                >
+                    <img
+                        class="w-12 h-8 mx-auto object-contain"
+                        src={"src/lib/images/weapons/" + weapon.id + ".png"}
+                        alt={weapon.name}
+                    />
+                </div>
+                <div
+                    class="w-20 h-16 {weapon.damageType ==
+                    correctWeapon.damageType
+                        ? 'bg-green-500'
+                        : 'bg-red-500'} border-2 border-black flex items-center text-center"
+                >
+                    <div class="flex items-center mx-auto">
+                        <p>{weapon.damageType}</p>
+                    </div>
+                </div>
+                <div
+                    class="w-20 h-16 {weapon.damage == correctWeapon.damage
+                        ? 'bg-green-500'
+                        : 'bg-red-500'} border-2 border-black flex items-center text-center"
+                >
+                    <div class="flex items-center mx-auto">
+                        <p>{weapon.damage}</p>
+                        <p>↑</p>
+                    </div>
+                </div>
+                <div
+                    class="w-20 h-16 {weapon.knockback ==
+                    correctWeapon.knockback
+                        ? 'bg-green-500'
+                        : 'bg-red-500'} border-2 border-black flex items-center text-center"
+                >
+                    <div class="flex items-center mx-auto">
+                        <p>{weapon.knockback}</p>
+                        <p>↑</p>
+                    </div>
+                </div>
+                <div
+                    class="w-20 h-16 {weapon.speed == correctWeapon.speed
+                        ? 'bg-green-500'
+                        : 'bg-red-500'} border-2 border-black flex items-center text-center"
+                >
+                    <div class="flex items-center mx-auto">
+                        <p>{weapon.speed}</p>
+                        <p>↑</p>
+                    </div>
+                </div>
+                <div
+                    class="w-20 h-16 {weapon.rarity == correctWeapon.rarity
+                        ? 'bg-green-500'
+                        : 'bg-red-500'} border-2 border-black flex items-center text-center"
+                >
+                    <div class="flex items-center mx-auto">
+                        <p>{weapon.rarity}</p>
+                        <p>↑</p>
+                    </div>
+                </div>
+                <div
+                    class="w-20 h-16 {weapon.autoswing ==
+                    correctWeapon.autoswing
+                        ? 'bg-green-500'
+                        : 'bg-red-500'} border-2 border-black flex items-center text-center"
+                >
+                    <div class="flex items-center mx-auto">
+                        <p>{weapon.autoswing}</p>
+                    </div>
+                </div>
+                <div
+                    class="w-20 h-16 {weapon.material == correctWeapon.material
+                        ? 'bg-green-500'
+                        : 'bg-red-500'} border-2 border-black flex items-center text-center"
+                >
+                    <div class="flex items-center mx-auto">
+                        <p>{weapon.material}</p>
+                    </div>
+                </div>
+                <div
+                    class="w-20 h-16 {weapon.obtained == correctWeapon.obtained
+                        ? 'bg-green-500'
+                        : 'bg-red-500'} border-2 border-black flex items-center text-center"
+                >
+                    <div class="flex items-center mx-auto">
+                        <p>{weapon.obtained}</p>
+                    </div>
+                </div>
+            </li>
+        {/each}
+    </ul>
 </main>
 
 <style>
