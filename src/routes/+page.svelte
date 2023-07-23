@@ -326,7 +326,7 @@
                     </div>
                 </div>
                 <div
-                    class="w-20 h-16 {weapon.obtained == correctWeapon.obtained
+                    class="w-20 h-16 {weapon.obtained.join(' ') == correctWeapon.obtained.join(' ')
                         ? 'bg-green-500'
                         : 'bg-red-500'} border-2 border-black flex items-center text-center"
                 >
