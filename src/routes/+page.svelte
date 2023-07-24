@@ -19,6 +19,15 @@
         }
     };
 
+    const haveOverlappingElements = (arr1: any[], arr2: any[]) => {
+        for (let i = 0; i < arr1.length; i++) {
+            if (arr2.includes(arr1[i])) {
+                return true;
+            }
+        }
+        return false;
+    };
+
     let knockbacks = [
         "No knockback",
         "Extremely weak",
@@ -434,20 +443,43 @@
                             <p>{weapon.material ? "O" : "X"}</p>
                         </div>
                     </div>
-                    <div
-                        class="w-20 h-16 {weapon.obtained.join(' ') ==
-                        correctWeapon.obtained.join(' ')
-                            ? 'bg-green-500'
-                            : 'bg-red-500'} border-2 border-black flex items-center text-center"
-                    >
-                        <div class="flex items-center mx-auto">
-                            <div class="flex flex-col">
-                                {#each weapon.obtained as obtained}
-                                    <p>{obtained}</p>
-                                {/each}
+                    {#if weapon.obtained.join(" ") == correctWeapon.obtained.join(" ")}
+                        <div
+                            class="w-20 h-16 bg-green-500 border-2 border-black flex items-center text-center"
+                        >
+                            <div class="flex items-center mx-auto">
+                                <div class="flex flex-col">
+                                    {#each weapon.obtained as obtained}
+                                        <p>{obtained}</p>
+                                    {/each}
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    {:else if haveOverlappingElements(weapon.obtained, correctWeapon.obtained)}
+                        <div
+                            class="w-20 h-16 bg-amber-500 border-2 border-black flex items-center text-center"
+                        >
+                            <div class="flex items-center mx-auto">
+                                <div class="flex flex-col">
+                                    {#each weapon.obtained as obtained}
+                                        <p>{obtained}</p>
+                                    {/each}
+                                </div>
+                            </div>
+                        </div>
+                    {:else if weapon.obtained.join(" ") != correctWeapon.obtained.join(" ")}
+                        <div
+                            class="w-20 h-16 bg-red-500 border-2 border-black flex items-center text-center"
+                        >
+                            <div class="flex items-center mx-auto">
+                                <div class="flex flex-col">
+                                    {#each weapon.obtained as obtained}
+                                        <p>{obtained}</p>
+                                    {/each}
+                                </div>
+                            </div>
+                        </div>
+                    {/if}
                 </li>
             {/each}
         </ul>
