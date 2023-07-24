@@ -250,7 +250,7 @@
                         src={"src/lib/images/weapons/" +
                             correctWeapon.id +
                             ".png"}
-                        alt={correctWeapon.name}
+                        alt="weapon image hint"
                     />
                 {/if}
             </div>
