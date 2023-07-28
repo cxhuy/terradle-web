@@ -150,7 +150,7 @@
                     <div
                         class="w-full h-fit {5 - submittedWeapons.length > 0
                             ? 'bg-[#2C3A74]/50 border-black'
-                            : 'bg-[#2C3A74]'} border-[1.5px] rounded-lg text-xs text-center flex flex-col py-1 px-2"
+                            : 'transition ease-in-out hover:brightness-125 duration-300 bg-[#2C3A74]'} border-[1.5px] rounded-lg text-xs text-center flex flex-col py-1 px-2"
                     >
                         <img
                             class="my-1 h-8 object-contain"
@@ -177,7 +177,7 @@
                     <div
                         class="w-full h-fit {10 - submittedWeapons.length > 0
                             ? 'bg-[#2C3A74]/50 border-black'
-                            : 'bg-[#2C3A74]'} border-[1.5px] rounded-lg text-xs text-center flex flex-col py-1 px-2"
+                            : 'transition ease-in-out hover:brightness-125 duration-300 bg-[#2C3A74]'} border-[1.5px] rounded-lg text-xs text-center flex flex-col py-1 px-2"
                     >
                         <img
                             class="my-1 h-8 object-contain"
@@ -204,7 +204,7 @@
                     <div
                         class="w-full h-fit {15 - submittedWeapons.length > 0
                             ? 'bg-[#2C3A74]/50 border-black'
-                            : 'bg-[#2C3A74]'} border-[1.5px] rounded-lg text-xs text-center flex flex-col py-1 px-2"
+                            : 'transition ease-in-out hover:brightness-125 duration-300 bg-[#2C3A74]'} border-[1.5px] rounded-lg text-xs text-center flex flex-col py-1 px-2"
                     >
                         <img
                             class="my-1 h-8 object-contain"
@@ -272,7 +272,7 @@
                             />
                             <button on:click|preventDefault={submitValue}>
                                 <img
-                                    class="w-12 h-9 bg-[#2C3A74] border-[1.5px] border-[#4157A4] rounded-lg object-fill"
+                                    class="transition ease-in-out hover:brightness-125 duration-300 w-12 h-9 bg-[#2C3A74] border-[1.5px] border-[#4157A4] rounded-lg object-fill"
                                     src="src/lib/images/playbutton.png"
                                     alt="submit button"
                                 />
