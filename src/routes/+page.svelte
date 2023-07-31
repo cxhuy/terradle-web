@@ -317,8 +317,8 @@
         </div>
     </div>
 
-    <div class="mx-auto w-80 md:w-full overflow-scroll">
-        {#if submittedWeapons.length}
+    {#if submittedWeapons.length}
+        <div class="mx-auto w-80 md:w-full overflow-scroll">
             <div
                 class="mt-4 mx-auto w-fit bg-black/60 flex gap-1 justify-center items-center text-center"
                 transition:fade
@@ -333,157 +333,162 @@
                 <div class="w-20">Material</div>
                 <div class="w-20">Obtained</div>
             </div>
-        {/if}
 
-        <ul class="mx-auto w-fit">
-            {#each submittedWeapons as weapon (weapon.id)}
-                <li
-                    class="mt-4 flex gap-1 justify-center items-center"
-                    transition:fade
-                >
-                    <div
-                        class="w-20 h-16 bg-black/50 border-2 border-black flex items-center text-center"
+            <ul class="mx-auto w-fit">
+                {#each submittedWeapons as weapon (weapon.id)}
+                    <li
+                        class="mt-4 flex gap-1 justify-center items-center"
+                        transition:fade
                     >
-                        <img
-                            class="w-12 h-8 mx-auto object-contain"
-                            src={"src/lib/images/weapons/" + weapon.id + ".png"}
-                            alt={weapon.name}
-                        />
-                    </div>
-                    <div
-                        class="w-20 h-16 {weapon.damageType ==
-                        correctWeapon.damageType
-                            ? 'bg-green-500'
-                            : 'bg-red-500'} border-2 border-black flex items-center text-center"
-                    >
-                        <div class="flex items-center mx-auto">
-                            <p>{weapon.damageType}</p>
-                        </div>
-                    </div>
-                    <div
-                        class="w-20 h-16 {weapon.damage == correctWeapon.damage
-                            ? 'bg-green-500'
-                            : 'bg-red-500'} border-2 border-black flex items-center text-center"
-                    >
-                        <div class="flex items-center mx-auto">
-                            <p class="w-14">{weapon.damage}</p>
-                            {#if parseInt(weapon.damage) < parseInt(correctWeapon.damage)}
-                                <p>↑</p>
-                            {:else if parseInt(weapon.damage) > parseInt(correctWeapon.damage)}
-                                <p>↓</p>
-                            {/if}
-                        </div>
-                    </div>
-                    <div
-                        class="w-20 h-16 {weapon.knockback ==
-                        correctWeapon.knockback
-                            ? 'bg-green-500'
-                            : 'bg-red-500'} border-2 border-black flex items-center text-center"
-                    >
-                        <div class="flex items-center mx-auto">
-                            <p class="w-14">{weapon.knockback}</p>
-                            {#if knockbacks.indexOf(weapon.knockback) < knockbacks.indexOf(correctWeapon.knockback)}
-                                <p>↑</p>
-                            {:else if knockbacks.indexOf(weapon.knockback) > knockbacks.indexOf(correctWeapon.knockback)}
-                                <p>↓</p>
-                            {/if}
-                        </div>
-                    </div>
-                    <div
-                        class="w-20 h-16 {weapon.speed == correctWeapon.speed
-                            ? 'bg-green-500'
-                            : 'bg-red-500'} border-2 border-black flex items-center text-center"
-                    >
-                        <div class="flex items-center mx-auto">
-                            <p class="w-14">{weapon.speed}</p>
-                            {#if speeds.indexOf(weapon.speed) > speeds.indexOf(correctWeapon.speed)}
-                                <p>↑</p>
-                            {:else if speeds.indexOf(weapon.speed) < speeds.indexOf(correctWeapon.speed)}
-                                <p>↓</p>
-                            {/if}
-                        </div>
-                    </div>
-                    <div
-                        class="w-20 h-16 {weapon.rarity == correctWeapon.rarity
-                            ? 'bg-green-500'
-                            : 'bg-red-500'} border-2 border-black flex items-center text-center"
-                    >
-                        <div class="flex items-center mx-auto">
+                        <div
+                            class="w-20 h-16 bg-black/50 border-2 border-black flex items-center text-center"
+                        >
                             <img
-                                class="w-14 max-h-4 object-contain"
-                                src={"src/lib/images/rarity/" +
-                                    weapon.rarity +
+                                class="w-12 h-8 mx-auto object-contain"
+                                src={"src/lib/images/weapons/" +
+                                    weapon.id +
                                     ".png"}
-                                alt={"rarity " + weapon.rarity}
+                                alt={weapon.name}
                             />
-                            {#if parseInt(weapon.rarity) < parseInt(correctWeapon.rarity)}
-                                <p>↑</p>
-                            {:else if parseInt(weapon.rarity) > parseInt(correctWeapon.rarity)}
-                                <p>↓</p>
-                            {/if}
                         </div>
-                    </div>
-                    <div
-                        class="w-20 h-16 {weapon.autoswing ==
-                        correctWeapon.autoswing
-                            ? 'bg-green-500'
-                            : 'bg-red-500'} border-2 border-black flex items-center text-center"
-                    >
-                        <div class="flex items-center mx-auto">
-                            <p>{weapon.autoswing ? "O" : "X"}</p>
-                        </div>
-                    </div>
-                    <div
-                        class="w-20 h-16 {weapon.material ==
-                        correctWeapon.material
-                            ? 'bg-green-500'
-                            : 'bg-red-500'} border-2 border-black flex items-center text-center"
-                    >
-                        <div class="flex items-center mx-auto">
-                            <p>{weapon.material ? "O" : "X"}</p>
-                        </div>
-                    </div>
-                    {#if weapon.obtained.join(" ") == correctWeapon.obtained.join(" ")}
                         <div
-                            class="w-20 h-16 bg-green-500 border-2 border-black flex items-center text-center"
+                            class="w-20 h-16 {weapon.damageType ==
+                            correctWeapon.damageType
+                                ? 'bg-green-500'
+                                : 'bg-red-500'} border-2 border-black flex items-center text-center"
                         >
                             <div class="flex items-center mx-auto">
-                                <div class="flex flex-col">
-                                    {#each weapon.obtained as obtained}
-                                        <p>{obtained}</p>
-                                    {/each}
-                                </div>
+                                <p>{weapon.damageType}</p>
                             </div>
                         </div>
-                    {:else if haveOverlappingElements(weapon.obtained, correctWeapon.obtained)}
                         <div
-                            class="w-20 h-16 bg-amber-500 border-2 border-black flex items-center text-center"
+                            class="w-20 h-16 {weapon.damage ==
+                            correctWeapon.damage
+                                ? 'bg-green-500'
+                                : 'bg-red-500'} border-2 border-black flex items-center text-center"
                         >
                             <div class="flex items-center mx-auto">
-                                <div class="flex flex-col">
-                                    {#each weapon.obtained as obtained}
-                                        <p>{obtained}</p>
-                                    {/each}
-                                </div>
+                                <p class="w-14">{weapon.damage}</p>
+                                {#if parseInt(weapon.damage) < parseInt(correctWeapon.damage)}
+                                    <p>↑</p>
+                                {:else if parseInt(weapon.damage) > parseInt(correctWeapon.damage)}
+                                    <p>↓</p>
+                                {/if}
                             </div>
                         </div>
-                    {:else if weapon.obtained.join(" ") != correctWeapon.obtained.join(" ")}
                         <div
-                            class="w-20 h-16 bg-red-500 border-2 border-black flex items-center text-center"
+                            class="w-20 h-16 {weapon.knockback ==
+                            correctWeapon.knockback
+                                ? 'bg-green-500'
+                                : 'bg-red-500'} border-2 border-black flex items-center text-center"
                         >
                             <div class="flex items-center mx-auto">
-                                <div class="flex flex-col">
-                                    {#each weapon.obtained as obtained}
-                                        <p>{obtained}</p>
-                                    {/each}
-                                </div>
+                                <p class="w-14">{weapon.knockback}</p>
+                                {#if knockbacks.indexOf(weapon.knockback) < knockbacks.indexOf(correctWeapon.knockback)}
+                                    <p>↑</p>
+                                {:else if knockbacks.indexOf(weapon.knockback) > knockbacks.indexOf(correctWeapon.knockback)}
+                                    <p>↓</p>
+                                {/if}
                             </div>
                         </div>
-                    {/if}
-                </li>
-            {/each}
-        </ul>
-    </div>
+                        <div
+                            class="w-20 h-16 {weapon.speed ==
+                            correctWeapon.speed
+                                ? 'bg-green-500'
+                                : 'bg-red-500'} border-2 border-black flex items-center text-center"
+                        >
+                            <div class="flex items-center mx-auto">
+                                <p class="w-14">{weapon.speed}</p>
+                                {#if speeds.indexOf(weapon.speed) > speeds.indexOf(correctWeapon.speed)}
+                                    <p>↑</p>
+                                {:else if speeds.indexOf(weapon.speed) < speeds.indexOf(correctWeapon.speed)}
+                                    <p>↓</p>
+                                {/if}
+                            </div>
+                        </div>
+                        <div
+                            class="w-20 h-16 {weapon.rarity ==
+                            correctWeapon.rarity
+                                ? 'bg-green-500'
+                                : 'bg-red-500'} border-2 border-black flex items-center text-center"
+                        >
+                            <div class="flex items-center mx-auto">
+                                <img
+                                    class="w-14 max-h-4 object-contain"
+                                    src={"src/lib/images/rarity/" +
+                                        weapon.rarity +
+                                        ".png"}
+                                    alt={"rarity " + weapon.rarity}
+                                />
+                                {#if parseInt(weapon.rarity) < parseInt(correctWeapon.rarity)}
+                                    <p>↑</p>
+                                {:else if parseInt(weapon.rarity) > parseInt(correctWeapon.rarity)}
+                                    <p>↓</p>
+                                {/if}
+                            </div>
+                        </div>
+                        <div
+                            class="w-20 h-16 {weapon.autoswing ==
+                            correctWeapon.autoswing
+                                ? 'bg-green-500'
+                                : 'bg-red-500'} border-2 border-black flex items-center text-center"
+                        >
+                            <div class="flex items-center mx-auto">
+                                <p>{weapon.autoswing ? "O" : "X"}</p>
+                            </div>
+                        </div>
+                        <div
+                            class="w-20 h-16 {weapon.material ==
+                            correctWeapon.material
+                                ? 'bg-green-500'
+                                : 'bg-red-500'} border-2 border-black flex items-center text-center"
+                        >
+                            <div class="flex items-center mx-auto">
+                                <p>{weapon.material ? "O" : "X"}</p>
+                            </div>
+                        </div>
+                        {#if weapon.obtained.join(" ") == correctWeapon.obtained.join(" ")}
+                            <div
+                                class="w-20 h-16 bg-green-500 border-2 border-black flex items-center text-center"
+                            >
+                                <div class="flex items-center mx-auto">
+                                    <div class="flex flex-col">
+                                        {#each weapon.obtained as obtained}
+                                            <p>{obtained}</p>
+                                        {/each}
+                                    </div>
+                                </div>
+                            </div>
+                        {:else if haveOverlappingElements(weapon.obtained, correctWeapon.obtained)}
+                            <div
+                                class="w-20 h-16 bg-amber-500 border-2 border-black flex items-center text-center"
+                            >
+                                <div class="flex items-center mx-auto">
+                                    <div class="flex flex-col">
+                                        {#each weapon.obtained as obtained}
+                                            <p>{obtained}</p>
+                                        {/each}
+                                    </div>
+                                </div>
+                            </div>
+                        {:else if weapon.obtained.join(" ") != correctWeapon.obtained.join(" ")}
+                            <div
+                                class="w-20 h-16 bg-red-500 border-2 border-black flex items-center text-center"
+                            >
+                                <div class="flex items-center mx-auto">
+                                    <div class="flex flex-col">
+                                        {#each weapon.obtained as obtained}
+                                            <p>{obtained}</p>
+                                        {/each}
+                                    </div>
+                                </div>
+                            </div>
+                        {/if}
+                    </li>
+                {/each}
+            </ul>
+        </div>
+    {/if}
 </main>
 
 <style>
