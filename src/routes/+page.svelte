@@ -108,7 +108,7 @@
     })[0];
 
     console.log(correctWeapon, data.initialData);
-    
+
     let submittedWeapons: any[] = [];
 
     const submitValue = () => {
@@ -284,7 +284,7 @@
 
                         {#if filteredWeapons.length > 0 && filteredWeaponsOpen}
                             <ul
-                                class="mt-4 mx-auto w-80 max-h-56 h-fit bg-[#2C3A74] border-[1.5px] border-black rounded-xl absolute left-1/2 translate-x-[-50%] overflow-y-scroll"
+                                class="mt-4 mx-auto w-80 max-h-56 h-fit bg-[#2C3A74] border-[1.5px] border-black rounded-xl absolute left-1/2 translate-x-[-50%] overflow-y-auto"
                             >
                                 {#each filteredWeapons as weapon, i}
                                     <li
@@ -305,7 +305,7 @@
                             </ul>
                         {:else if inputValue != "" && !weaponClicked && filteredWeaponsOpen}
                             <ul
-                                class="mt-4 mx-auto w-80 max-h-56 h-fit border-[1.5px] border-black rounded-xl absolute left-1/2 translate-x-[-50%] overflow-y-scroll"
+                                class="mt-4 mx-auto w-80 max-h-56 h-fit border-[1.5px] border-black rounded-xl absolute left-1/2 translate-x-[-50%] overflow-y-auto"
                             >
                                 <li
                                     class="py-2 pl-3 flex items-center bg-[#2C3A74] w-full"
@@ -321,7 +321,7 @@
     </div>
 
     {#if submittedWeapons.length}
-        <div class="mx-auto w-80 md:w-full overflow-scroll">
+        <div class="mx-auto w-80 md:w-full overflow-auto">
             <div
                 class="mt-4 mx-auto w-fit bg-black/60 flex gap-1 justify-center items-center text-center"
                 transition:fade
