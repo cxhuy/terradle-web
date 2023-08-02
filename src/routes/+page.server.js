@@ -1,6 +1,10 @@
-import { weaponData } from "$lib/data/weapons";
+import { weaponData } from "$lib/data/weapons"; 
+import { APIPATH } from "$env/static/private"
 
-export function load() {
+export async function load() {
+    const res = await fetch(APIPATH + "getInitialData.php");
+    const initialData = await res.json();
+
     return {
         weapons: weaponData.map((weapon) => ({
             id: weapon.data.id,
@@ -15,6 +19,7 @@ export function load() {
             sell: weapon.data.sell,
             obtained: weapon.data.obtained,
             material: weapon.data.material
-        }))
+        })), 
+        initialData
     }
 }

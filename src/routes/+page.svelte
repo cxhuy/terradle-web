@@ -103,9 +103,12 @@
         weaponNames.push(data.weapons[i].name);
     }
 
-    let correctWeapon =
-        data.weapons[Math.floor(Math.random() * data.weapons.length)];
-    console.log(correctWeapon);
+    let correctWeapon = data.weapons.filter(function (weapon) {
+        return weapon.id == data.initialData.answer;
+    })[0];
+
+    console.log(correctWeapon, data.initialData);
+    
     let submittedWeapons: any[] = [];
 
     const submitValue = () => {
