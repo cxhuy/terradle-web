@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { PUBLIC_APIPATH } from "$env/static/public";
     import { fade } from "svelte/transition";
     export let data;
 
@@ -119,17 +120,35 @@
                 data.weapons[weaponNames.indexOf(inputValue)]
             )
         ) {
+            if (submittedWeapons.length == 0) {
+                reportResult(0);
+            }
             submittedWeapons = [
                 data.weapons[weaponNames.indexOf(inputValue)],
                 ...submittedWeapons,
             ];
             if (inputValue == correctWeapon.name) {
+                reportResult(1);
                 gameFinished = true;
                 alert("You Win!");
             }
             inputValue = "";
         }
     };
+
+    async function reportResult(success: number) {
+        console.log(data.playerCookie);
+        const response = await fetch(
+            PUBLIC_APIPATH +
+                "reportResult.php?date=" +
+                data.initialData.date +
+                "&success=" +
+                success.toString(),
+            {
+                credentials: "include",
+            }
+        );
+    }
 </script>
 
 <main class="-translate-y-4">
