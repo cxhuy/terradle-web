@@ -177,7 +177,7 @@
                         <img
                             class="my-1 h-8 object-contain"
                             src="src/lib/images/weapons_hint/selling_price_hint.png"
-                            alt="gold coin"
+                            alt="selling price"
                         />
                         <p class="mx-auto">Selling price</p>
                         <p>
@@ -204,7 +204,7 @@
                         <img
                             class="my-1 h-8 object-contain"
                             src="src/lib/images/weapons_hint/tooltip_hint.png"
-                            alt="gold coin"
+                            alt="tooltip"
                         />
                         <p class="mx-auto">Tooltip</p>
                         <p class="mx-auto">
@@ -231,7 +231,7 @@
                         <img
                             class="my-1 h-8 object-contain"
                             src="src/lib/images/weapons_hint/image_hint.png"
-                            alt="gold coin"
+                            alt="weapon image"
                         />
                         <p class="mx-auto">Image</p>
                         <p class="mx-auto">
