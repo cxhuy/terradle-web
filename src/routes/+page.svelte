@@ -9,6 +9,10 @@
     let hintsToShow: boolean[] = [false, false, false];
     $: gameFinished = submittedWeapons.includes(correctWeapon);
 
+    $: hint1 = 5 - submittedWeapons.length > 0 && !gameFinished;
+    $: hint2 = 10 - submittedWeapons.length > 0 && !gameFinished;
+    $: hint3 = 15 - submittedWeapons.length > 0 && !gameFinished;
+
     const handleHints = (hintToShow: number) => {
         if (hintsToShow[hintToShow]) {
             hintsToShow[hintToShow] = false;
@@ -136,7 +140,6 @@
     };
 
     async function reportResult(success: number) {
-        console.log(data.playerCookie);
         const response = await fetch(
             PUBLIC_APIPATH +
                 "reportResult.php?date=" +
@@ -162,14 +165,12 @@
         >
             <div class="w-full flex gap-2 mb-2">
                 <button
-                    disabled={5 - submittedWeapons.length > 0}
-                    class="w-full h-fit {5 - submittedWeapons.length > 0
-                        ? 'cursor-default'
-                        : ''}"
+                    disabled={hint1}
+                    class="w-full h-fit {hint1 ? 'cursor-default' : ''}"
                     on:click={() => handleHints(0)}
                 >
                     <div
-                        class="w-full h-fit {5 - submittedWeapons.length > 0
+                        class="w-full h-fit {hint1
                             ? 'bg-[#2C3A74]/50 border-black'
                             : 'transition ease-in-out hover:brightness-125 duration-300 bg-[#2C3A74]'} border-[1.5px] rounded-lg text-xs text-center flex flex-col py-1 px-2"
                     >
@@ -180,7 +181,7 @@
                         />
                         <p class="mx-auto">Selling price</p>
                         <p>
-                            {#if 5 - submittedWeapons.length > 0}
+                            {#if hint1}
                                 in {5 - submittedWeapons.length} tries...
                             {:else if !hintsToShow[0]}
                                 click to reveal
@@ -189,14 +190,12 @@
                     </div>
                 </button>
                 <button
-                    disabled={10 - submittedWeapons.length > 0}
-                    class="w-full h-fit {10 - submittedWeapons.length > 0
-                        ? 'cursor-default'
-                        : ''}"
+                    disabled={hint2}
+                    class="w-full h-fit {hint2 ? 'cursor-default' : ''}"
                     on:click={() => handleHints(1)}
                 >
                     <div
-                        class="w-full h-fit {10 - submittedWeapons.length > 0
+                        class="w-full h-fit {hint2
                             ? 'bg-[#2C3A74]/50 border-black'
                             : 'transition ease-in-out hover:brightness-125 duration-300 bg-[#2C3A74]'} border-[1.5px] rounded-lg text-xs text-center flex flex-col py-1 px-2"
                     >
@@ -207,7 +206,7 @@
                         />
                         <p class="mx-auto">Tooltip</p>
                         <p class="mx-auto">
-                            {#if 10 - submittedWeapons.length > 0}
+                            {#if hint2}
                                 in {10 - submittedWeapons.length} tries...
                             {:else if !hintsToShow[1]}
                                 click to reveal
@@ -216,14 +215,12 @@
                     </div>
                 </button>
                 <button
-                    disabled={15 - submittedWeapons.length > 0}
-                    class="w-full h-fit {15 - submittedWeapons.length > 0
-                        ? 'cursor-default'
-                        : ''}"
+                    disabled={hint3}
+                    class="w-full h-fit {hint3 ? 'cursor-default' : ''}"
                     on:click={() => handleHints(2)}
                 >
                     <div
-                        class="w-full h-fit {15 - submittedWeapons.length > 0
+                        class="w-full h-fit {hint3
                             ? 'bg-[#2C3A74]/50 border-black'
                             : 'transition ease-in-out hover:brightness-125 duration-300 bg-[#2C3A74]'} border-[1.5px] rounded-lg text-xs text-center flex flex-col py-1 px-2"
                     >
@@ -234,7 +231,7 @@
                         />
                         <p class="mx-auto">Image</p>
                         <p class="mx-auto">
-                            {#if 15 - submittedWeapons.length > 0}
+                            {#if hint3}
                                 in {15 - submittedWeapons.length} tries...
                             {:else if !hintsToShow[2]}
                                 click to reveal
