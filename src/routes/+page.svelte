@@ -7,7 +7,7 @@
     let weaponClicked: boolean = false;
 
     let hintsToShow: boolean[] = [false, false, false];
-    let gameFinished = false;
+    $: gameFinished = submittedWeapons.includes(correctWeapon);
 
     const handleHints = (hintToShow: number) => {
         if (hintsToShow[hintToShow]) {
@@ -129,7 +129,6 @@
             ];
             if (inputValue == correctWeapon.name) {
                 reportResult(1);
-                gameFinished = true;
                 alert("You Win!");
             }
             inputValue = "";
