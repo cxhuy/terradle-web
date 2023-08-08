@@ -161,7 +161,7 @@
             <p class="mx-auto text-2xl">Guess today's weapon!</p>
         </div>
         <div
-            class="mx-auto w-80 h-fit bg-[#1C2443] border-[1.5px] border-black rounded-xl flex flex-col pt-8 px-2 pb-2"
+            class="mx-auto w-80 h-fit bg-[#1C2443] border-[1.5px] border-black rounded-xl flex flex-col pt-8 px-2"
         >
             <div class="w-full flex gap-2 mb-2">
                 <button
@@ -273,7 +273,7 @@
                 {/if}
             </div>
             {#if !gameFinished}
-                <div class="w-full">
+                <div class="w-full mb-2">
                     <form
                         autocomplete="off"
                         on:submit|preventDefault={submitValue}
