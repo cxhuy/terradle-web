@@ -7,18 +7,26 @@
     let filteredWeapons: any[] = [];
     let weaponClicked: boolean = false;
 
-    let date: Date = new Date(new Date().toLocaleString("en-US", {
-        timeZone: "America/Chicago",
-    }));
+    let date: Date = new Date(
+        new Date().toLocaleString("en-US", {
+            timeZone: "America/Chicago",
+        })
+    );
     let midnight: Date = new Date(date);
     midnight.setHours(24, 0, 0, 0);
 
     $: diff = midnight.getTime() - date.getTime();
 
     $: nextQuiz = [
-        (Math.floor(diff / (1000 * 60 * 60))).toString().padStart(2, "0"),
-        (Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).toString().padStart(2, "0"),
-        (Math.floor((diff % (1000 * 60)) / 1000)).toString().padStart(2, "0"),
+        Math.floor(diff / (1000 * 60 * 60))
+            .toString()
+            .padStart(2, "0"),
+        Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))
+            .toString()
+            .padStart(2, "0"),
+        Math.floor((diff % (1000 * 60)) / 1000)
+            .toString()
+            .padStart(2, "0"),
     ];
 
     let hintsToShow: boolean[] = [false, false, false];
@@ -169,10 +177,11 @@
 
     onMount(() => {
         const interval = setInterval(() => {
-            date = new Date(new Date().toLocaleString("en-US", {
-                timeZone: "America/Chicago",
-            }));
-            console.log(date);
+            date = new Date(
+                new Date().toLocaleString("en-US", {
+                    timeZone: "America/Chicago",
+                })
+            );
         }, 1000);
 
         return () => {
@@ -368,11 +377,13 @@
             <p class="my-2 mx-auto text-2xl">
                 Next quiz in {nextQuiz.join(":")}
             </p>
-            <img
-                class="w-20 h-20 mx-auto object-contain bg-[#2C3A74] p-2 border-2 border-black rounded-lg"
-                src={"src/lib/images/weapons/" + correctWeapon.id + ".png"}
-                alt="weapon hint"
-            />
+            <div class="flex gap-x-2">
+                <img
+                    class="mx-auto w-20 h-20 object-contain bg-[#2C3A74] p-2 border-2 border-black rounded-lg"
+                    src={"src/lib/images/weapons/" + correctWeapon.id + ".png"}
+                    alt="weapon hint"
+                />
+            </div>
             <div
                 class="w-full h-fit mx-auto bg-[#1C2443]/95 p-4 border-2 border-black rounded-lg"
             >
@@ -410,7 +421,7 @@
                     {#if correctWeapon.tooltip != undefined}
                         {#each correctWeapon.tooltip as tooltip}
                             <li>
-                                <p>tooltip</p>
+                                <p>{tooltip}</p>
                             </li>
                         {/each}
                     {/if}
