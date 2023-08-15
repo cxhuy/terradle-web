@@ -7,10 +7,16 @@
     let filteredWeapons: any[] = [];
     let weaponClicked: boolean = false;
 
-    let dateStr: string = new Date().toLocaleString("en-US", { timeZone: "America/Chicago" });
+    let dateStr: string = new Date().toLocaleString("en-US", {
+        timeZone: "America/Chicago",
+    });
     let date: Date = new Date(dateStr);
 
-    $: nextQuiz = [24 - date.getHours(), 60 - date.getMinutes(), 60 - date.getSeconds()];
+    $: nextQuiz = [
+        ((24 - date.getHours()) % 24).toString().padStart(2, "0"),
+        ((60 - date.getMinutes()) % 60).toString().padStart(2, "0"),
+        ((60 - date.getSeconds()) % 60).toString().padStart(2, "0"),
+    ];
 
     let hintsToShow: boolean[] = [false, false, false];
     $: gameFinished = submittedWeapons.includes(correctWeapon);
@@ -159,15 +165,17 @@
     }
 
     onMount(() => {
-		const interval = setInterval(() => {
-			dateStr = new Date().toLocaleString("en-US", { timeZone: "America/Chicago" });
+        const interval = setInterval(() => {
+            dateStr = new Date().toLocaleString("en-US", {
+                timeZone: "America/Chicago",
+            });
             date = new Date(dateStr);
-		}, 1000);
+        }, 1000);
 
-		return () => {
-			clearInterval(interval);
-		};
-	});
+        return () => {
+            clearInterval(interval);
+        };
+    });
 </script>
 
 <main class="-translate-y-4">
@@ -354,7 +362,9 @@
 
     {#if gameFinished}
         <div class="mx-auto w-80 h-fit flex flex-col gap-y-2 p-2">
-            <p class="my-2 mx-auto text-2xl">Next quiz in {nextQuiz.join(":")}</p>
+            <p class="my-2 mx-auto text-2xl">
+                Next quiz in {nextQuiz.join(":")}
+            </p>
             <img
                 class="w-20 h-20 mx-auto object-contain bg-[#2C3A74] p-2 border-2 border-black rounded-lg"
                 src={"src/lib/images/weapons/" + correctWeapon.id + ".png"}
@@ -371,7 +381,11 @@
                     </li>
                     <li>
                         <p>
-                            {[correctWeapon.damage, correctWeapon.damageType.toLowerCase(), "damage"].join(" ")}
+                            {[
+                                correctWeapon.damage,
+                                correctWeapon.damageType.toLowerCase(),
+                                "damage",
+                            ].join(" ")}
                         </p>
                     </li>
                     <li>
@@ -386,18 +400,14 @@
                     </li>
                     {#if correctWeapon.material}
                         <li>
-                            <p>
-                                Material
-                            </p>
+                            <p>Material</p>
                         </li>
                     {/if}
 
                     {#if correctWeapon.tooltip != undefined}
                         {#each correctWeapon.tooltip as tooltip}
                             <li>
-                                <p>
-                                    tooltip
-                                </p>
+                                <p>tooltip</p>
                             </li>
                         {/each}
                     {/if}
