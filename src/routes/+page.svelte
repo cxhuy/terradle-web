@@ -506,7 +506,7 @@
                                 : 'bg-red-500'} border-2 border-black flex items-center text-center"
                         >
                             <div class="flex items-center mx-auto">
-                                <p>{weapon.autoswing ? "O" : "X"}</p>
+                                <p>{weapon.autoswing ? "Yes" : "No"}</p>
                             </div>
                         </div>
                         <div
@@ -516,7 +516,7 @@
                                 : 'bg-red-500'} border-2 border-black flex items-center text-center"
                         >
                             <div class="flex items-center mx-auto">
-                                <p>{weapon.material ? "O" : "X"}</p>
+                                <p>{weapon.material ? "Yes" : "No"}</p>
                             </div>
                         </div>
                         {#if weapon.obtained.join(" ") == correctWeapon.obtained.join(" ")}
