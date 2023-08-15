@@ -7,15 +7,18 @@
     let filteredWeapons: any[] = [];
     let weaponClicked: boolean = false;
 
-    let dateStr: string = new Date().toLocaleString("en-US", {
+    let date: Date = new Date(new Date().toLocaleString("en-US", {
         timeZone: "America/Chicago",
-    });
-    let date: Date = new Date(dateStr);
+    }));
+    let midnight: Date = new Date(date);
+    midnight.setHours(24, 0, 0, 0);
+
+    $: diff = midnight.getTime() - date.getTime();
 
     $: nextQuiz = [
-        ((24 - date.getHours()) % 24).toString().padStart(2, "0"),
-        ((60 - date.getMinutes()) % 60).toString().padStart(2, "0"),
-        ((60 - date.getSeconds()) % 60).toString().padStart(2, "0"),
+        (Math.floor(diff / (1000 * 60 * 60))).toString().padStart(2, "0"),
+        (Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).toString().padStart(2, "0"),
+        (Math.floor((diff % (1000 * 60)) / 1000)).toString().padStart(2, "0"),
     ];
 
     let hintsToShow: boolean[] = [false, false, false];
@@ -166,10 +169,10 @@
 
     onMount(() => {
         const interval = setInterval(() => {
-            dateStr = new Date().toLocaleString("en-US", {
+            date = new Date(new Date().toLocaleString("en-US", {
                 timeZone: "America/Chicago",
-            });
-            date = new Date(dateStr);
+            }));
+            console.log(date);
         }, 1000);
 
         return () => {
