@@ -161,7 +161,7 @@
             <p class="mx-auto text-2xl">Guess today's weapon!</p>
         </div>
         <div
-            class="mx-auto w-80 h-fit bg-[#1C2443] border-[1.5px] border-black rounded-xl flex flex-col pt-8 px-2"
+            class="mx-auto w-80 h-fit bg-[#1C2443]/95 border-[1.5px] border-black rounded-xl flex flex-col pt-8 px-2"
         >
             <div class="w-full flex gap-2 mb-2">
                 <button
@@ -334,6 +334,60 @@
             {/if}
         </div>
     </div>
+
+    {#if gameFinished}
+        <div class="mx-auto w-80 h-fit flex flex-col gap-y-2 p-2">
+            <p class="my-2 mx-auto text-2xl">Next quiz in [insert time]</p>
+            <img
+                class="w-20 h-20 mx-auto object-contain bg-[#2C3A74] p-2 border-2 border-black rounded-lg"
+                src={"src/lib/images/weapons/" + correctWeapon.id + ".png"}
+                alt="weapon hint"
+            />
+            <div
+                class="w-full h-fit mx-auto bg-[#1C2443]/95 p-4 border-2 border-black rounded-lg"
+            >
+                <ul class="text-xl">
+                    <li>
+                        <p class="text-pink-600">
+                            {correctWeapon.name}
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            {[correctWeapon.damage, correctWeapon.damageType.toLowerCase(), "damage"].join(" ")}
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            {[correctWeapon.speed, "speed"].join(" ")}
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            {[correctWeapon.knockback, "knockback"].join(" ")}
+                        </p>
+                    </li>
+                    {#if correctWeapon.material}
+                        <li>
+                            <p>
+                                Material
+                            </p>
+                        </li>
+                    {/if}
+
+                    {#if correctWeapon.tooltip != undefined}
+                        {#each correctWeapon.tooltip as tooltip}
+                            <li>
+                                <p>
+                                    tooltip
+                                </p>
+                            </li>
+                        {/each}
+                    {/if}
+                </ul>
+            </div>
+        </div>
+    {/if}
 
     {#if submittedWeapons.length}
         <div class="mx-auto w-80 md:w-full overflow-auto">
