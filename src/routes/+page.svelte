@@ -1,10 +1,16 @@
 <script lang="ts">
+    import { onMount } from "svelte";
     import { PUBLIC_APIPATH } from "$env/static/public";
     import { fade } from "svelte/transition";
     export let data;
 
     let filteredWeapons: any[] = [];
     let weaponClicked: boolean = false;
+
+    let dateStr: string = new Date().toLocaleString("en-US", { timeZone: "America/Chicago" });
+    let date: Date = new Date(dateStr);
+
+    $: nextQuiz = [24 - date.getHours(), 60 - date.getMinutes(), 60 - date.getSeconds()];
 
     let hintsToShow: boolean[] = [false, false, false];
     $: gameFinished = submittedWeapons.includes(correctWeapon);
@@ -151,6 +157,17 @@
             }
         );
     }
+
+    onMount(() => {
+		const interval = setInterval(() => {
+			dateStr = new Date().toLocaleString("en-US", { timeZone: "America/Chicago" });
+            date = new Date(dateStr);
+		}, 1000);
+
+		return () => {
+			clearInterval(interval);
+		};
+	});
 </script>
 
 <main class="-translate-y-4">
@@ -337,7 +354,7 @@
 
     {#if gameFinished}
         <div class="mx-auto w-80 h-fit flex flex-col gap-y-2 p-2">
-            <p class="my-2 mx-auto text-2xl">Next quiz in [insert time]</p>
+            <p class="my-2 mx-auto text-2xl">Next quiz in {nextQuiz.join(":")}</p>
             <img
                 class="w-20 h-20 mx-auto object-contain bg-[#2C3A74] p-2 border-2 border-black rounded-lg"
                 src={"src/lib/images/weapons/" + correctWeapon.id + ".png"}
