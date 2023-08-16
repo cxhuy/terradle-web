@@ -131,9 +131,11 @@
         weaponNames.push(data.weapons[i].name);
     }
 
-    let correctWeapon = data.weapons.filter(function (weapon) {
-        return weapon.id == data.initialData.answer;
-    })[0];
+    // let correctWeapon = data.weapons.filter(function (weapon) {
+    //     return weapon.id == data.initialData.answer;
+    // })[0];
+    let correctWeapon =
+        data.weapons[Math.floor(Math.random() * data.weapons.length)];
 
     console.log(correctWeapon, data.initialData);
 
