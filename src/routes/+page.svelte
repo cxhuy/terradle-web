@@ -215,7 +215,7 @@
                     >
                         <img
                             class="my-1 h-8 object-contain"
-                            src="src/lib/images/weapons_hint/selling_price_hint.png"
+                            src="/images/weapons_hint/selling_price_hint.png"
                             alt="selling price"
                         />
                         <p class="mx-auto">Selling price</p>
@@ -240,7 +240,7 @@
                     >
                         <img
                             class="my-1 h-8 object-contain"
-                            src="src/lib/images/weapons_hint/tooltip_hint.png"
+                            src="/images/weapons_hint/tooltip_hint.png"
                             alt="tooltip"
                         />
                         <p class="mx-auto">Tooltip</p>
@@ -265,7 +265,7 @@
                     >
                         <img
                             class="my-1 h-8 object-contain"
-                            src="src/lib/images/weapons_hint/image_hint.png"
+                            src="/images/weapons_hint/image_hint.png"
                             alt="weapon image"
                         />
                         <p class="mx-auto">Image</p>
@@ -304,7 +304,7 @@
                 {:else if hintsToShow[2]}
                     <img
                         class="w-16 h-16 mx-auto object-contain blur-sm"
-                        src={"src/lib/images/weapons/" +
+                        src={"/images/weapons/" +
                             correctWeapon.id +
                             ".png"}
                         alt="weapon image hint"
@@ -330,7 +330,7 @@
                             <button on:click|preventDefault={submitValue}>
                                 <img
                                     class="transition ease-in-out hover:brightness-125 duration-300 w-12 h-9 bg-[#2C3A74] border-[1.5px] border-[#4157A4] rounded-lg object-fill"
-                                    src="src/lib/images/playbutton.png"
+                                    src="/images/playbutton.png"
                                     alt="submit button"
                                 />
                             </button>
@@ -348,7 +348,7 @@
                                     >
                                         <img
                                             class="mr-4 w-8 h-8 object-contain"
-                                            src={"src/lib/images/weapons/" +
+                                            src={"/images/weapons/" +
                                                 weapon.id +
                                                 ".png"}
                                             alt={weapon.name}
@@ -382,7 +382,7 @@
             <div class="flex gap-x-2">
                 <img
                     class="mx-auto w-20 h-20 object-contain bg-[#2C3A74] p-2 border-2 border-black rounded-lg"
-                    src={"src/lib/images/weapons/" + correctWeapon.id + ".png"}
+                    src={"/images/weapons/" + correctWeapon.id + ".png"}
                     alt="weapon hint"
                 />
             </div>
@@ -460,7 +460,7 @@
                         >
                             <img
                                 class="w-12 h-8 mx-auto object-contain"
-                                src={"src/lib/images/weapons/" +
+                                src={"/images/weapons/" +
                                     weapon.id +
                                     ".png"}
                                 alt={weapon.name}
@@ -530,7 +530,7 @@
                             <div class="flex items-center mx-auto">
                                 <img
                                     class="w-14 max-h-4 object-contain"
-                                    src={"src/lib/images/rarity/" +
+                                    src={"/images/rarity/" +
                                         weapon.rarity +
                                         ".png"}
                                     alt={"rarity " + weapon.rarity}

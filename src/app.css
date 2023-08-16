@@ -20,7 +20,7 @@
     color-scheme: light dark;
     color: rgba(255, 255, 255, 0.87);
 
-    background-image: url("$lib/background.png");
+    background-image: url("/background.png");
     background-size: cover;
     background-position: top;
 
