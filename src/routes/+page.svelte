@@ -86,9 +86,11 @@
             for (var i = 0; i < data.weapons.length; i++) {
                 let weapon = data.weapons[i];
                 if (
-                    weapon.name
+                    (weapon.name
                         .toLowerCase()
-                        .includes(inputValue.toLowerCase()) &&
+                        .includes(inputValue.toLowerCase()) ||
+                        weapon.damageType.toLowerCase() ==
+                            inputValue.toLowerCase()) &&
                     storageArr.indexOf(weapon) == -1 &&
                     submittedWeapons.indexOf(weapon) == -1
                 ) {
@@ -304,9 +306,7 @@
                 {:else if hintsToShow[2]}
                     <img
                         class="w-16 h-16 mx-auto object-contain blur-sm"
-                        src={"/images/weapons/" +
-                            correctWeapon.id +
-                            ".png"}
+                        src={"/images/weapons/" + correctWeapon.id + ".png"}
                         alt="weapon image hint"
                     />
                 {/if}
@@ -460,9 +460,7 @@
                         >
                             <img
                                 class="w-12 h-8 mx-auto object-contain"
-                                src={"/images/weapons/" +
-                                    weapon.id +
-                                    ".png"}
+                                src={"/images/weapons/" + weapon.id + ".png"}
                                 alt={weapon.name}
                             />
                         </div>
