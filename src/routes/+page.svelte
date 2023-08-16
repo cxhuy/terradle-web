@@ -381,7 +381,7 @@
                 <img
                     class="mx-auto w-20 h-20 object-contain bg-[#2C3A74] p-2 border-2 border-black rounded-lg"
                     src={"/images/weapons/" + correctWeapon.id + ".png"}
-                    alt="weapon hint"
+                    alt={correctWeapon.name}
                 />
             </div>
             <div
