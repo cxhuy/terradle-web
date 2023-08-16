@@ -426,28 +426,6 @@ export const weaponData = [
         }
     },
     {
-        "rawName": "Beenade",
-        "data": {
-            "id": "1130",
-            "name": "Beenade",
-            "autoswing": false,
-            "damage": "12",
-            "damageType": "Ranged",
-            "knockback": "Extremely weak",
-            "speed": "Very fast",
-            "tooltip": [
-                "Explodes into a swarm of bees"
-            ],
-            "rarity": "0",
-            "sell": "5 Silver Coins",
-            "obtained": [
-                "Drop",
-                "Crafting"
-            ],
-            "material": false
-        }
-    },
-    {
         "rawName": "Betsy%27s_Wrath",
         "data": {
             "id": "3870",
@@ -712,43 +690,6 @@ export const weaponData = [
         }
     },
     {
-        "rawName": "Bone",
-        "data": {
-            "id": "154",
-            "name": "Bone",
-            "autoswing": false,
-            "damage": "20",
-            "damageType": "Ranged",
-            "knockback": "Very weak",
-            "speed": "Very fast",
-            "rarity": "0",
-            "sell": "10 Copper Coins",
-            "obtained": [
-                "Drop",
-                "Crafting"
-            ],
-            "material": true
-        }
-    },
-    {
-        "rawName": "Bone_Javelin",
-        "data": {
-            "id": "3378",
-            "name": "Bone Javelin",
-            "autoswing": true,
-            "damage": "20",
-            "damageType": "Ranged",
-            "knockback": "Average",
-            "speed": "Fast",
-            "rarity": "1",
-            "sell": "10 Copper Coins",
-            "obtained": [
-                "Crafting"
-            ],
-            "material": false
-        }
-    },
-    {
         "rawName": "Bone_Sword",
         "data": {
             "id": "1166",
@@ -762,24 +703,6 @@ export const weaponData = [
             "sell": "18 Silver Coins",
             "obtained": [
                 "Drop"
-            ],
-            "material": false
-        }
-    },
-    {
-        "rawName": "Bone_Throwing_Knife",
-        "data": {
-            "id": "3379",
-            "name": "Bone Throwing Knife",
-            "autoswing": true,
-            "damage": "14",
-            "damageType": "Ranged",
-            "knockback": "Extremely weak",
-            "speed": "Very fast",
-            "rarity": "1",
-            "sell": "10 Copper Coins",
-            "obtained": [
-                "Crafting"
             ],
             "material": false
         }
@@ -854,28 +777,6 @@ export const weaponData = [
             "damageType": "Melee",
             "knockback": "Average",
             "speed": "Very fast",
-            "rarity": "0",
-            "sell": "20 Copper Coins",
-            "obtained": [
-                "Crafting"
-            ],
-            "material": false
-        }
-    },
-    {
-        "rawName": "Bouncy_Grenade",
-        "data": {
-            "id": "3116",
-            "name": "Bouncy Grenade",
-            "autoswing": false,
-            "damage": "65",
-            "damageType": "",
-            "knockback": "Very strong",
-            "speed": "Very slow",
-            "tooltip": [
-                "A small explosion that will not destroy tiles",
-                "Very bouncy"
-            ],
             "rarity": "0",
             "sell": "20 Copper Coins",
             "obtained": [
@@ -2550,24 +2451,6 @@ export const weaponData = [
         }
     },
     {
-        "rawName": "Frost_Daggerfish",
-        "data": {
-            "id": "3197",
-            "name": "Frost Daggerfish",
-            "autoswing": false,
-            "damage": "17",
-            "damageType": "Ranged",
-            "knockback": "Weak",
-            "speed": "Very fast",
-            "rarity": "1",
-            "sell": "16 Copper Coins",
-            "obtained": [
-                "Fishing"
-            ],
-            "material": false
-        }
-    },
-    {
         "rawName": "Frost_Staff",
         "data": {
             "id": "726",
@@ -2829,27 +2712,6 @@ export const weaponData = [
         }
     },
     {
-        "rawName": "Grenade",
-        "data": {
-            "id": "168",
-            "name": "Grenade",
-            "autoswing": false,
-            "damage": "60",
-            "damageType": "",
-            "knockback": "Very strong",
-            "speed": "Very slow",
-            "tooltip": [
-                "A small explosion that will not destroy tiles"
-            ],
-            "rarity": "0",
-            "obtained": [
-                "Buy"
-            ],
-            "sell": "15 Copper Coins",
-            "material": true
-        }
-    },
-    {
         "rawName": "Grenade_Launcher",
         "data": {
             "id": "758",
@@ -2963,28 +2825,6 @@ export const weaponData = [
                 "Chest"
             ],
             "material": true
-        }
-    },
-    {
-        "rawName": "Happy_Grenade",
-        "data": {
-            "id": "3548",
-            "name": "Happy Grenade",
-            "autoswing": false,
-            "damage": "30",
-            "damageType": "",
-            "knockback": "Average",
-            "speed": "Very fast",
-            "tooltip": [
-                "A small explosion that will not destroy tiles"
-            ],
-            "rarity": "2",
-            "obtained": [
-                "Buy",
-                "Drop"
-            ],
-            "sell": "50 Copper Coins",
-            "material": false
         }
     },
     {
@@ -3359,24 +3199,6 @@ export const weaponData = [
             "speed": "Fast",
             "rarity": "8",
             "sell": "10 Gold Coins",
-            "obtained": [
-                "Drop"
-            ],
-            "material": false
-        }
-    },
-    {
-        "rawName": "Javelin",
-        "data": {
-            "id": "3094",
-            "name": "Javelin",
-            "autoswing": false,
-            "damage": "17",
-            "damageType": "Ranged",
-            "knockback": "Average",
-            "speed": "Fast",
-            "rarity": "0",
-            "sell": "5 Copper Coins",
             "obtained": [
                 "Drop"
             ],
@@ -4019,28 +3841,6 @@ export const weaponData = [
         }
     },
     {
-        "rawName": "Molotov_Cocktail",
-        "data": {
-            "id": "2590",
-            "name": "Molotov Cocktail",
-            "autoswing": false,
-            "damage": "23",
-            "damageType": "Ranged",
-            "knockback": "Strong",
-            "speed": "Very slow",
-            "tooltip": [
-                "A small explosion that puts enemies on fire",
-                "Lights nearby area on fire for a while"
-            ],
-            "rarity": "1",
-            "sell": "1 Silver Coin",
-            "obtained": [
-                "Crafting"
-            ],
-            "material": false
-        }
-    },
-    {
         "rawName": "Molten_Fury",
         "data": {
             "id": "120",
@@ -4616,24 +4416,6 @@ export const weaponData = [
         }
     },
     {
-        "rawName": "White_Paper_Airplane",
-        "data": {
-            "id": "4343",
-            "name": "Paper Airplane",
-            "autoswing": false,
-            "damage": "4",
-            "damageType": "Ranged",
-            "knockback": "Very weak",
-            "speed": "Very fast",
-            "rarity": "0",
-            "sell": "10 Silver Coins",
-            "obtained": [
-                "Drop"
-            ],
-            "material": false
-        }
-    },
-    {
         "rawName": "Pearlwood_Bow",
         "data": {
             "id": "661",
@@ -4866,24 +4648,6 @@ export const weaponData = [
                 "Drop"
             ],
             "material": true
-        }
-    },
-    {
-        "rawName": "Poisoned_Knife",
-        "data": {
-            "id": "287",
-            "name": "Poisoned Knife",
-            "autoswing": true,
-            "damage": "14",
-            "damageType": "Ranged",
-            "knockback": "Very weak",
-            "speed": "Very fast",
-            "rarity": "0",
-            "sell": "12 Copper Coins",
-            "obtained": [
-                "Crafting"
-            ],
-            "material": false
         }
     },
     {
@@ -5334,26 +5098,6 @@ export const weaponData = [
         }
     },
     {
-        "rawName": "Rotten_Egg",
-        "data": {
-            "id": "1809",
-            "name": "Rotten Egg",
-            "autoswing": false,
-            "damage": "13",
-            "damageType": "Ranged",
-            "knockback": "Strong",
-            "speed": "Very fast",
-            "tooltip": [
-                "Best used for pranking townsfolk"
-            ],
-            "rarity": "0",
-            "obtained": [
-                "Chest"
-            ],
-            "material": false
-        }
-    },
-    {
         "rawName": "Ruby_Staff",
         "data": {
             "id": "743",
@@ -5712,24 +5456,6 @@ export const weaponData = [
         }
     },
     {
-        "rawName": "Shuriken",
-        "data": {
-            "id": "42",
-            "name": "Shuriken",
-            "autoswing": false,
-            "damage": "10",
-            "damageType": "Ranged",
-            "knockback": "No knockback",
-            "speed": "Very fast",
-            "rarity": "0",
-            "obtained": [
-                "Buy"
-            ],
-            "sell": "3 Copper Coins",
-            "material": false
-        }
-    },
-    {
         "rawName": "Silver_Bow",
         "data": {
             "id": "3510",
@@ -5928,23 +5654,6 @@ export const weaponData = [
         }
     },
     {
-        "rawName": "Snowball",
-        "data": {
-            "id": "949",
-            "name": "Snowball",
-            "autoswing": false,
-            "damage": "8",
-            "damageType": "Ranged",
-            "knockback": "Average",
-            "speed": "Very fast",
-            "rarity": "0",
-            "obtained": [
-                "Crafting"
-            ],
-            "material": false
-        }
-    },
-    {
         "rawName": "Snowball_Cannon",
         "data": {
             "id": "1319",
@@ -6083,25 +5792,6 @@ export const weaponData = [
         }
     },
     {
-        "rawName": "Spiky_Ball",
-        "data": {
-            "id": "161",
-            "name": "Spiky Ball",
-            "autoswing": false,
-            "damage": "16",
-            "damageType": "Ranged",
-            "knockback": "Extremely weak",
-            "speed": "Very fast",
-            "rarity": "0",
-            "obtained": [
-                "Buy",
-                "Drop"
-            ],
-            "sell": "16 Copper Coins",
-            "material": false
-        }
-    },
-    {
         "rawName": "Spinal_Tap",
         "data": {
             "id": "5074",
@@ -6200,24 +5890,6 @@ export const weaponData = [
             "sell": "10 Gold Coins",
             "obtained": [
                 "Drop"
-            ],
-            "material": false
-        }
-    },
-    {
-        "rawName": "Star_Anise",
-        "data": {
-            "id": "1913",
-            "name": "Star Anise",
-            "autoswing": false,
-            "damage": "14",
-            "damageType": "Ranged",
-            "knockback": "No knockback",
-            "speed": "Very fast",
-            "rarity": "0",
-            "sell": "5 Copper Coins",
-            "obtained": [
-                "Chest"
             ],
             "material": false
         }
@@ -6365,28 +6037,6 @@ export const weaponData = [
             "sell": "10 Gold Coins",
             "obtained": [
                 "Drop"
-            ],
-            "material": false
-        }
-    },
-    {
-        "rawName": "Sticky_Grenade",
-        "data": {
-            "id": "2586",
-            "name": "Sticky Grenade",
-            "autoswing": false,
-            "damage": "60",
-            "damageType": "",
-            "knockback": "Very strong",
-            "speed": "Very slow",
-            "tooltip": [
-                "A small explosion that will not destroy tiles",
-                "'Tossing may be difficult.'"
-            ],
-            "rarity": "0",
-            "sell": "15 Copper Coins",
-            "obtained": [
-                "Crafting"
             ],
             "material": false
         }
@@ -6793,24 +6443,6 @@ export const weaponData = [
                 "Crafting"
             ],
             "material": false
-        }
-    },
-    {
-        "rawName": "Throwing_Knife",
-        "data": {
-            "id": "279",
-            "name": "Throwing Knife",
-            "autoswing": false,
-            "damage": "12",
-            "damageType": "Ranged",
-            "knockback": "Very weak",
-            "speed": "Very fast",
-            "rarity": "0",
-            "obtained": [
-                "Buy"
-            ],
-            "sell": "10 Copper Coins",
-            "material": true
         }
     },
     {
