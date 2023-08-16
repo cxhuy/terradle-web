@@ -135,6 +135,10 @@
         return weapon.id == data.initialData.answer;
     })[0];
 
+    let yesterdayWeapon = data.weapons.filter(function (weapon) {
+        return weapon.id == data.initialData.yesterdayAnswer;
+    })[0];
+
     console.log(correctWeapon, data.initialData);
 
     let submittedWeapons: any[] = [];
@@ -302,9 +306,7 @@
                 {:else if hintsToShow[2]}
                     <img
                         class="w-16 h-16 mx-auto object-contain blur-sm"
-                        src={"/images/weapons/" +
-                            correctWeapon.id +
-                            ".png"}
+                        src={"/images/weapons/" + correctWeapon.id + ".png"}
                         alt="weapon image hint"
                     />
                 {/if}
@@ -430,7 +432,17 @@
         </div>
     {/if}
 
-    {#if submittedWeapons.length}
+    {#if submittedWeapons.length == 0}
+        <div class="mt-6 flex flex-col justify-center items-center text-xl">
+            <p>Yesterday's weapon was...</p>
+            <img
+                class="mt-2 p-2 w-16 h-16 ml-1 bg-black/60 object-contain roudned-lg border-2"
+                src={"/images/weapons/" + yesterdayWeapon.id + ".png"}
+                alt={yesterdayWeapon.name}
+            />
+            <p class="mt-1">{yesterdayWeapon.name}</p>
+        </div>
+    {:else}
         <div class="mx-auto w-80 md:w-full overflow-auto">
             <div
                 class="mt-4 mx-auto w-fit bg-black/60 flex gap-1 justify-center items-center text-center"
@@ -458,9 +470,7 @@
                         >
                             <img
                                 class="w-12 h-8 mx-auto object-contain"
-                                src={"/images/weapons/" +
-                                    weapon.id +
-                                    ".png"}
+                                src={"/images/weapons/" + weapon.id + ".png"}
                                 alt={weapon.name}
                             />
                         </div>
