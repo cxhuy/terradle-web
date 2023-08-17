@@ -142,6 +142,7 @@
     console.log(correctWeapon, data.initialData);
 
     let submittedWeapons: any[] = [];
+    let submittedWeaponsName: string[] = [];
 
     const submitValue = () => {
         if (
@@ -158,6 +159,14 @@
                 data.weapons[weaponNames.indexOf(inputValue)],
                 ...submittedWeapons,
             ];
+            submittedWeaponsName = [
+                data.weapons[weaponNames.indexOf(inputValue)].name,
+                ...submittedWeaponsName,
+            ];
+            localStorage.setItem(
+                "submittedWeapons",
+                JSON.stringify(submittedWeaponsName)
+            );
             if (inputValue == correctWeapon.name) {
                 reportResult(1);
                 alert("You Win!");
@@ -180,6 +189,18 @@
     }
 
     onMount(() => {
+        JSON.parse(localStorage.getItem("submittedWeapons")!).forEach(
+            (weaponName: string) => {
+                submittedWeapons.push(
+                    data.weapons[weaponNames.indexOf(weaponName)]
+                );
+                submittedWeaponsName = [
+                    data.weapons[weaponNames.indexOf(weaponName)].name,
+                    ...submittedWeaponsName,
+                ];
+            }
+        );
+        gameFinished = submittedWeapons.includes(correctWeapon);
         const interval = setInterval(() => {
             date = new Date(
                 new Date().toLocaleString("en-US", {
@@ -377,7 +398,13 @@
     {#if gameFinished}
         <div class="mx-auto w-80 h-fit flex flex-col gap-y-2 p-2">
             <p class="my-2 mx-auto text-2xl">
-                Next quiz in {nextQuiz.join(":")}
+                {#if diff > 0}
+                    Next quiz in {nextQuiz.join(":")}
+                {:else}
+                    <span class="text-xl"
+                        >Refresh the page for the next quiz!</span
+                    >
+                {/if}
             </p>
             <div class="flex gap-x-2">
                 <img
