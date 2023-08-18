@@ -9,6 +9,21 @@
     let filteredWeapons: any[] = [];
     let weaponClicked: boolean = false;
 
+    let rarityColors: string[] = [
+        "#FFFFFF",
+        "#9696FF",
+        "#96FF96",
+        "#FFC896",
+        "#FF9696",
+        "#FF96FF",
+        "#D2A0FF",
+        "#96FF0A",
+        "#FFFF0A",
+        "#05C8FF",
+        "#FF2864",
+        "#B428FF",
+    ];
+
     let date: Date = new Date(
         new Date().toLocaleString("en-US", {
             timeZone: "America/Chicago",
@@ -435,7 +450,11 @@
                 >
                     <ul class="text-xl">
                         <li>
-                            <p class="text-pink-600">
+                            <p
+                                class="text-[{rarityColors[
+                                    parseInt(correctWeapon.rarity)
+                                ].toLowerCase()}]"
+                            >
                                 {correctWeapon.name}
                             </p>
                         </li>
