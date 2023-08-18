@@ -189,17 +189,29 @@
     }
 
     onMount(() => {
-        JSON.parse(localStorage.getItem("submittedWeapons")!).forEach(
-            (weaponName: string) => {
-                submittedWeapons.push(
-                    data.weapons[weaponNames.indexOf(weaponName)]
-                );
-                submittedWeaponsName = [
-                    data.weapons[weaponNames.indexOf(weaponName)].name,
-                    ...submittedWeaponsName,
-                ];
-            }
+        if (
+            localStorage.getItem("sessionDate") != null &&
+            JSON.parse(localStorage.getItem("sessionDate")!) != data.initialData.date
+        ) {
+            localStorage.clear();
+        }
+        localStorage.setItem(
+            "sessionDate",
+            JSON.stringify(data.initialData.date)
         );
+        if (localStorage.getItem("submittedWeapons") != null) {
+            JSON.parse(localStorage.getItem("submittedWeapons")!).forEach(
+                (weaponName: string) => {
+                    submittedWeapons.push(
+                        data.weapons[weaponNames.indexOf(weaponName)]
+                    );
+                    submittedWeaponsName = [
+                        data.weapons[weaponNames.indexOf(weaponName)].name,
+                        ...submittedWeaponsName,
+                    ];
+                }
+            );
+        }
         gameFinished = submittedWeapons.includes(correctWeapon);
         const interval = setInterval(() => {
             date = new Date(
