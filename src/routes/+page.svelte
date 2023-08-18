@@ -331,7 +331,7 @@
                         {#if correctWeapon.tooltip}
                             {correctWeapon.tooltip
                                 ?.join("\n")
-                                .replace(/\B\w/g, "-")}
+                                .replace(/(?<=\w{2})[^\s!%&'",.?]/g, "-")}
                         {:else}
                             There is no tooltip for this item.
                         {/if}
