@@ -340,7 +340,19 @@
                         : ''} w-full h-fit p-2 mb-2 bg-[#2C3A74] rounded-lg flex items-center text-center"
                 >
                     {#if hintsToShow[0]}
-                        <p class="w-full text-[#C1AD4F]">
+                        <p
+                            class="w-full {correctWeapon.sell
+                                .toLowerCase()
+                                .split(' ')
+                                .includes('gold')
+                                ? 'text-[#C1AD4F]'
+                                : correctWeapon.sell
+                                      .toLowerCase()
+                                      .split(' ')
+                                      .includes('silver')
+                                ? 'text-[#A0AEAE]'
+                                : 'text-[#AB6156]'}"
+                        >
                             {"Sell price: " +
                                 correctWeapon.sell
                                     ?.replace("Coins", "")
