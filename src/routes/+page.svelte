@@ -49,8 +49,8 @@
     let hintsToShow: boolean[] = [false, false, false];
     $: gameFinished = submittedWeapons.includes(correctWeapon);
 
-    $: hint1 = 5 - submittedWeapons.length > 0 && !gameFinished;
-    $: hint2 = 10 - submittedWeapons.length > 0 && !gameFinished;
+    $: hint1 = 3 - submittedWeapons.length > 0 && !gameFinished;
+    $: hint2 = 8 - submittedWeapons.length > 0 && !gameFinished;
     $: hint3 = 15 - submittedWeapons.length > 0 && !gameFinished;
 
     const handleHints = (hintToShow: number) => {
@@ -276,7 +276,7 @@
                             <p class="mx-auto">Selling price</p>
                             <p>
                                 {#if hint1}
-                                    in {5 - submittedWeapons.length} tries...
+                                    in {3 - submittedWeapons.length} tries...
                                 {:else if !hintsToShow[0]}
                                     click to reveal
                                 {/if}
@@ -301,7 +301,7 @@
                             <p class="mx-auto">Tooltip</p>
                             <p class="mx-auto">
                                 {#if hint2}
-                                    in {10 - submittedWeapons.length} tries...
+                                    in {8 - submittedWeapons.length} tries...
                                 {:else if !hintsToShow[1]}
                                     click to reveal
                                 {/if}
