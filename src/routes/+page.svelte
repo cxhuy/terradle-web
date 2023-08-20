@@ -451,9 +451,9 @@
                     <ul class="text-xl">
                         <li>
                             <p
-                                class="text-[{rarityColors[
+                                style="color: {rarityColors[
                                     parseInt(correctWeapon.rarity)
-                                ].toLowerCase()}]"
+                                ].toLowerCase()};"
                             >
                                 {correctWeapon.name}
                             </p>
@@ -501,11 +501,21 @@
             <div class="mt-6 flex flex-col justify-center items-center text-xl">
                 <p>Yesterday's weapon was...</p>
                 <img
+                    style="border-color: {rarityColors[
+                        parseInt(yesterdayWeapon.rarity)
+                    ].toLowerCase()};"
                     class="mt-2 p-2 w-16 h-16 ml-1 bg-black/60 object-contain roudned-lg border-2"
                     src={"/images/weapons/" + yesterdayWeapon.id + ".png"}
                     alt={yesterdayWeapon.name}
                 />
-                <p class="mt-1">{yesterdayWeapon.name}</p>
+                <p
+                    style="color: {rarityColors[
+                        parseInt(yesterdayWeapon.rarity)
+                    ].toLowerCase()};"
+                    class="mt-1"
+                >
+                    {yesterdayWeapon.name}
+                </p>
             </div>
         {:else}
             <div class="mx-auto w-80 md:w-full overflow-auto">
