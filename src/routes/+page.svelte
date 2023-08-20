@@ -359,6 +359,7 @@
                             {"Sell price: " +
                                 correctWeapon.sell
                                     ?.replace("Coins", "")
+                                    .replace("Coin", "")
                                     .toLowerCase()}
                         </p>
                     {:else if hintsToShow[1]}
