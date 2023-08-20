@@ -1,4 +1,4 @@
-import { weaponData } from "$lib/data/weapons"; 
+import { gameVersion, weaponData } from "$lib/data/weapons"; 
 import { APIPATH } from "$env/static/private"
 
 export async function load() {
@@ -6,6 +6,7 @@ export async function load() {
     const initialData = await res.json();
 
     return {
+        gameVersion: gameVersion,
         weapons: weaponData.map((weapon) => ({
             id: weapon.data.id,
             name: weapon.data.name,

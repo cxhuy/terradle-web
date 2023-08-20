@@ -1,3 +1,5 @@
+export const gameVersion = "1.4.4.9"
+
 export const weaponData = [
     {
         "rawName": "Abigail%27s_Flower",
