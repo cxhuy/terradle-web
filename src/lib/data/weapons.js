@@ -283,6 +283,78 @@ export const weaponData = [
         }
     },
     {
+        "rawName": "Ballista_Cane",
+        "data": {
+            "id": "3825",
+            "name": "Ballista Cane",
+            "autoswing": false,
+            "damage": "74",
+            "damageType": "Summon",
+            "knockback": "Average",
+            "speed": "Average",
+            "tooltip": [
+                "Summons a sentry",
+                "A slow but high damage tower that shoots piercing bolts",
+                "Costs 10 Etherian Mana per use while defending an Eternia Crystal"
+            ],
+            "rarity": "5",
+            "sell": "5 Gold Coins",
+            "obtained": [
+                "Buy",
+                "Crafting"
+            ],
+            "material": true
+        }
+    },
+    {
+        "rawName": "Ballista_Rod",
+        "data": {
+            "id": "3824",
+            "name": "Ballista Rod",
+            "autoswing": false,
+            "damage": "30",
+            "damageType": "Summon",
+            "knockback": "Average",
+            "speed": "Average",
+            "tooltip": [
+                "Summons a sentry",
+                "A slow but high damage tower that shoots piercing bolts",
+                "Costs 10 Etherian Mana per use while defending an Eternia Crystal"
+            ],
+            "rarity": "3",
+            "sell": "1 Gold Coin",
+            "obtained": [
+                "Buy",
+                "Crafting"
+            ],
+            "material": true
+        }
+    },
+    {
+        "rawName": "Ballista_Staff",
+        "data": {
+            "id": "3826",
+            "name": "Ballista Staff",
+            "autoswing": false,
+            "damage": "156",
+            "damageType": "Summon",
+            "knockback": "Average",
+            "speed": "Average",
+            "tooltip": [
+                "Summons a sentry",
+                "A slow but high damage tower that shoots piercing bolts",
+                "Costs 10 Etherian Mana per use while defending an Eternia Crystal"
+            ],
+            "rarity": "8",
+            "sell": "15 Gold Coins",
+            "obtained": [
+                "Buy",
+                "Crafting"
+            ],
+            "material": true
+        }
+    },
+    {
         "rawName": "Ball_O%27_Hurt",
         "data": {
             "id": "162",
@@ -2065,6 +2137,78 @@ export const weaponData = [
         }
     },
     {
+        "rawName": "Explosive_Trap_Cane",
+        "data": {
+            "id": "3833",
+            "name": "Explosive Trap Cane",
+            "autoswing": false,
+            "damage": "59",
+            "damageType": "Summon",
+            "knockback": "Extremely weak",
+            "speed": "Average",
+            "tooltip": [
+                "Summons a sentry",
+                "A trap that explodes when enemies come near",
+                "Costs 10 Etherian Mana per use while defending an Eternia Crystal"
+            ],
+            "rarity": "5",
+            "sell": "5 Gold Coins",
+            "obtained": [
+                "Buy",
+                "Crafting"
+            ],
+            "material": true
+        }
+    },
+    {
+        "rawName": "Explosive_Trap_Rod",
+        "data": {
+            "id": "3832",
+            "name": "Explosive Trap Rod",
+            "autoswing": false,
+            "damage": "24",
+            "damageType": "Summon",
+            "knockback": "Extremely weak",
+            "speed": "Average",
+            "tooltip": [
+                "Summons a sentry",
+                "A trap that explodes when enemies come near",
+                "Costs 10 Etherian Mana per use while defending an Eternia Crystal"
+            ],
+            "rarity": "3",
+            "sell": "1 Gold Coin",
+            "obtained": [
+                "Buy",
+                "Crafting"
+            ],
+            "material": true
+        }
+    },
+    {
+        "rawName": "Explosive_Trap_Staff",
+        "data": {
+            "id": "3834",
+            "name": "Explosive Trap Staff",
+            "autoswing": false,
+            "damage": "126",
+            "damageType": "Summon",
+            "knockback": "Extremely weak",
+            "speed": "Average",
+            "tooltip": [
+                "Summons a sentry",
+                "A trap that explodes when enemies come near",
+                "Costs 10 Etherian Mana per use while defending an Eternia Crystal"
+            ],
+            "rarity": "8",
+            "sell": "15 Gold Coins",
+            "obtained": [
+                "Buy",
+                "Crafting"
+            ],
+            "material": true
+        }
+    },
+    {
         "rawName": "Falcon_Blade",
         "data": {
             "id": "2608",
@@ -2182,6 +2326,78 @@ export const weaponData = [
                 "Crafting"
             ],
             "material": false
+        }
+    },
+    {
+        "rawName": "Flameburst_Cane",
+        "data": {
+            "id": "3819",
+            "name": "Flameburst Cane",
+            "autoswing": false,
+            "damage": "42",
+            "damageType": "Summon",
+            "knockback": "Very weak",
+            "speed": "Average",
+            "tooltip": [
+                "Summons a sentry",
+                "An average speed tower that shoots exploding fireballs",
+                "Costs 10 Etherian Mana per use while defending an Eternia Crystal"
+            ],
+            "rarity": "5",
+            "sell": "5 Gold Coin",
+            "obtained": [
+                "Buy",
+                "Crafting"
+            ],
+            "material": true
+        }
+    },
+    {
+        "rawName": "Flameburst_Rod",
+        "data": {
+            "id": "3818",
+            "name": "Flameburst Rod",
+            "autoswing": false,
+            "damage": "17",
+            "damageType": "Summon",
+            "knockback": "Very weak",
+            "speed": "Average",
+            "tooltip": [
+                "Summons a sentry",
+                "An average speed tower that shoots exploding fireballs",
+                "Costs 10 Etherian Mana per use while defending an Eternia Crystal"
+            ],
+            "rarity": "3",
+            "sell": "1 Gold Coin",
+            "obtained": [
+                "Buy",
+                "Crafting"
+            ],
+            "material": true
+        }
+    },
+    {
+        "rawName": "Flameburst_Staff",
+        "data": {
+            "id": "3820",
+            "name": "Flameburst Staff",
+            "autoswing": false,
+            "damage": "88",
+            "damageType": "Summon",
+            "knockback": "Very weak",
+            "speed": "Average",
+            "tooltip": [
+                "Summons a sentry",
+                "An average speed tower that shoots exploding fireballs",
+                "Costs 10 Etherian Mana per use while defending an Eternia Crystal"
+            ],
+            "rarity": "8",
+            "sell": "15 Gold Coins",
+            "obtained": [
+                "Buy",
+                "Crafting"
+            ],
+            "material": true
         }
     },
     {
@@ -3538,6 +3754,84 @@ export const weaponData = [
             "rarity": "1",
             "sell": "27 Silver Coins",
             "obtained": [
+                "Crafting"
+            ],
+            "material": true
+        }
+    },
+    {
+        "rawName": "Lightning_Aura_Cane",
+        "data": {
+            "id": "3830",
+            "name": "Lightning Aura Cane",
+            "autoswing": false,
+            "damage": "11",
+            "damageType": "Summon",
+            "knockback": "Extremely weak",
+            "speed": "Average",
+            "tooltip": [
+                "Summons a sentry",
+                "An aura that repeatedly zaps enemies that go inside",
+                "Aura damage penetrates enemy defense",
+                "Hits quickly at the expense of 50% tag damage",
+                "Costs 10 Etherian Mana per use while defending an Eternia Crystal"
+            ],
+            "rarity": "5",
+            "sell": "5 Gold Coins",
+            "obtained": [
+                "Buy",
+                "Crafting"
+            ],
+            "material": true
+        }
+    },
+    {
+        "rawName": "Lightning_Aura_Rod",
+        "data": {
+            "id": "3829",
+            "name": "Lightning Aura Rod",
+            "autoswing": false,
+            "damage": "4",
+            "damageType": "Summon",
+            "knockback": "Extremely weak",
+            "speed": "Average",
+            "tooltip": [
+                "Summons a sentry",
+                "An aura that repeatedly zaps enemies that go inside",
+                "Aura damage penetrates enemy defense",
+                "Hits quickly at the expense of 50% tag damage",
+                "Costs 10 Etherian Mana per use while defending an Eternia Crystal"
+            ],
+            "rarity": "3",
+            "sell": "1 Gold Coin",
+            "obtained": [
+                "Buy",
+                "Crafting"
+            ],
+            "material": true
+        }
+    },
+    {
+        "rawName": "Lightning_Aura_Staff",
+        "data": {
+            "id": "3831",
+            "name": "Lightning Aura Staff",
+            "autoswing": false,
+            "damage": "34",
+            "damageType": "Summon",
+            "knockback": "Extremely weak",
+            "speed": "Average",
+            "tooltip": [
+                "Summons a sentry",
+                "An aura that repeatedly zaps enemies that go inside",
+                "Aura damage penetrates enemy defense",
+                "Hits quickly at the expense of 50% tag damage",
+                "Costs 10 Etherian Mana per use while defending an Eternia Crystal"
+            ],
+            "rarity": "8",
+            "sell": "15 Gold Coins",
+            "obtained": [
+                "Buy",
                 "Crafting"
             ],
             "material": true
@@ -7072,6 +7366,27 @@ export const weaponData = [
             "sell": "10 Gold Coins",
             "obtained": [
                 "Crafting"
+            ],
+            "material": false
+        }
+    },
+    {
+        "rawName": "Waffle%27s_Iron",
+        "data": {
+            "id": "5382",
+            "name": "Waffle's Iron",
+            "autoswing": true,
+            "damage": "50",
+            "damageType": "Melee",
+            "knockback": "Average",
+            "speed": "Fast",
+            "tooltip": [
+                "'It's Waffle Time!'"
+            ],
+            "rarity": "5",
+            "sell": "1 Gold Coin",
+            "obtained": [
+                "Drop"
             ],
             "material": false
         }
