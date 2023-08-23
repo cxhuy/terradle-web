@@ -205,7 +205,12 @@
         );
     }
 
+    async function assignCookie() {
+        const res = await fetch(PUBLIC_APIPATH + "assignCookie.php");
+    }
+
     onMount(() => {
+        assignCookie();
         if (
             localStorage.getItem("sessionDate") != null &&
             JSON.parse(localStorage.getItem("sessionDate")!) !=
