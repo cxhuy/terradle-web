@@ -15,5 +15,6 @@
             />
         </div>
         <slot />
+        <div class="h-6" />
     </div>
 </div>
