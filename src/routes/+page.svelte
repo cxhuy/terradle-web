@@ -158,7 +158,7 @@
         return weapon.id == data.initialData.yesterdayAnswer;
     })[0];
 
-    console.log(correctWeapon, data.initialData);
+    // console.log(correctWeapon, data.initialData);
 
     let submittedWeapons: any[] = [];
     let submittedWeaponsName: string[] = [];
