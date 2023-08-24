@@ -188,7 +188,11 @@
             );
             if (inputValue == correctWeapon.name) {
                 reportResult(1);
-                alert("You Win!");
+                alert(
+                    "You Win!\nYou guessed today's weapon in " +
+                        submittedWeapons.length.toString() +
+                        (submittedWeapons.length == 1 ? " try!" : "tries!")
+                );
             }
             inputValue = "";
         }
