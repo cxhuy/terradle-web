@@ -2,7 +2,7 @@
     import { page } from "$app/stores";
 
     $: {
-        if (typeof gtag !== "undefined" && $page.url.hostname !== "localhost") {
+        if (typeof gtag !== "undefined") {
             gtag("config", "G-Y539LDK705", {
                 page_title: document.title,
                 page_path: $page.url.pathname,
@@ -18,15 +18,13 @@
     >
     </script>
     <script>
-        if ($page.url.hostname !== "localhost") {
-            window.dataLayer = window.dataLayer || [];
+        window.dataLayer = window.dataLayer || [];
 
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-
-            gtag("js", new Date());
-            gtag("config", "G-Y539LDK705");
+        function gtag() {
+            dataLayer.push(arguments);
         }
+
+        gtag("js", new Date());
+        gtag("config", "G-Y539LDK705");
     </script>
 </svelte:head>
