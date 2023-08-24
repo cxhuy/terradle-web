@@ -4,6 +4,8 @@
     import { fade } from "svelte/transition";
     export let data;
 
+    let showHowToPlay: boolean = false;
+
     let syncedLocalStorage: boolean = false;
 
     let filteredWeapons: any[] = [];
@@ -703,6 +705,60 @@
                         </li>
                     {/each}
                 </ul>
+            </div>
+        {/if}
+        <div class="w-full flex items-center">
+            <button
+                class="mx-auto mt-8 cursor-pointer"
+                on:click={() => (showHowToPlay = !showHowToPlay)}
+            >
+                <p class="text-2xl hover:underline">How to play</p>
+            </button>
+        </div>
+        {#if showHowToPlay}
+            <div class="w-80 mx-auto text-lg flex-col" transition:fade>
+                <p>
+                    The objective of this game is to guess today's weapon based
+                    on the stats and hints provided throughout the game.
+                </p>
+                <p class="mt-2">
+                    For every weapon you submit, each stats will appear as <span
+                        class="text-green-500">green</span
+                    >, <span class="text-amber-500">yellow</span>, or
+                    <span class="text-red-500">red</span> depending on how close
+                    it is to today's weapon's stat.
+                </p>
+                <p class="mt-2">
+                    <span class="text-green-500">Green</span> means that the stat
+                    is identical to the matching stat of today's weapon.
+                </p>
+                <p>
+                    <span class="text-yellow-500">Yellow</span> means that there
+                    are overlapping stats with today's weapon (only for obtained).
+                </p>
+                <p>
+                    <span class="text-red-500">Red</span> means that the stat is
+                    wrong. There are white arrows to indicate whether you are lower
+                    or higher than the actual stat.
+                </p>
+                <p>
+                    ex) Damage: 54↑ means that today's weapon's damage stat is
+                    higher than 54, so you need to aim for a weapon with a
+                    higher damage stat.
+                </p>
+                <p class="mt-2">
+                    Consumables such as grenades are not included in the game.
+                </p>
+                <p>Tools such as pickaxes are not included in the game.</p>
+                <p>Phasesabers are not included in the game.</p>
+                <p class="mt-2">
+                    Weapons that can be shimmered into a different weapon is
+                    considered a material.
+                </p>
+                <p>
+                    Weapons that can be obtained through shimmering is
+                    considered to be obtainable by crafting.
+                </p>
             </div>
         {/if}
     </main>
