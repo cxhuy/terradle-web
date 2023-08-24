@@ -2,7 +2,7 @@ import { gameVersion, weaponData } from "$lib/data/weapons";
 import { APIPATH } from "$env/static/private"
 
 export async function load() {
-    const res = await fetch(APIPATH + "getInitialData.php");
+    const res = await fetch(APIPATH + "getInitialData.php?token=new");
     const initialData = await res.json();
 
     return {

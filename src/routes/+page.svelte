@@ -200,7 +200,9 @@
                 "reportResult.php?date=" +
                 data.initialData.date +
                 "&success=" +
-                success.toString(),
+                success.toString() +
+                "&token=" +
+                localStorage.getItem("token"),
             {
                 credentials: "include",
             }
@@ -208,12 +210,16 @@
     }
 
     onMount(() => {
+        if (localStorage.getItem("token") == null) {
+            localStorage.setItem("token", data.initialData.token);
+        }
         if (
             localStorage.getItem("sessionDate") != null &&
             JSON.parse(localStorage.getItem("sessionDate")!) !=
                 data.initialData.date
         ) {
-            localStorage.clear();
+            localStorage.removeItem("sessionDate");
+            localStorage.removeItem("submittedWeapons");
         }
         localStorage.setItem(
             "sessionDate",
@@ -716,7 +722,10 @@
             </button>
         </div>
         {#if showHowToPlay}
-            <div class="w-80 mx-auto md:w-fit md:text-center text-lg flex-col" transition:fade>
+            <div
+                class="w-80 mx-auto md:w-fit md:text-center text-lg flex-col"
+                transition:fade
+            >
                 <p>
                     The objective of this game is to guess today's weapon based
                     on the stats and hints provided throughout the game.
