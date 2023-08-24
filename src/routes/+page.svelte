@@ -716,7 +716,7 @@
             </button>
         </div>
         {#if showHowToPlay}
-            <div class="w-80 mx-auto text-lg flex-col" transition:fade>
+            <div class="w-80 mx-auto md:w-fit md:text-center text-lg flex-col" transition:fade>
                 <p>
                     The objective of this game is to guess today's weapon based
                     on the stats and hints provided throughout the game.
