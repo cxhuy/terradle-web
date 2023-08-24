@@ -191,7 +191,7 @@
                 alert(
                     "You Win!\nYou guessed today's weapon in " +
                         submittedWeapons.length.toString() +
-                        (submittedWeapons.length == 1 ? " try!" : "tries!")
+                        (submittedWeapons.length == 1 ? " try!" : " tries!")
                 );
             }
             inputValue = "";
