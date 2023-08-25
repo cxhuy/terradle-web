@@ -748,62 +748,62 @@
         </div>
         {#if showHowToPlay}
             <div
-                class="w-80 mx-auto md:w-fit md:text-center text-lg flex-col"
+                class="w-80 mx-auto md:w-fit text-lg flex-col"
                 transition:fade
             >
                 <p>
-                    The objective of this game is to guess today's weapon based
+                    • The objective of this game is to guess the WOTD (weapon of the day) based
                     on the stats and hints provided throughout the game.
                 </p>
                 <p class="mt-2">
-                    For every weapon you submit, each stat will appear as <span
+                    • For every weapon submitted, each stat will appear as <span
                         class="text-green-500">green</span
                     >, <span class="text-amber-500">yellow</span>, or
                     <span class="text-red-500">red</span> depending on how close
-                    it is to today's weapon's stats.
+                    it is to the stats of the WOTD.
                 </p>
                 <p class="mt-2">
-                    <span class="text-green-500">Green</span> means the stat is identical
-                    to that of today's weapon.
+                    • <span class="text-green-500">Green</span> means the stat is identical
+                    to that of the WOTD.
                 </p>
                 <p>
-                    <span class="text-yellow-500">Yellow</span> (only for obtained)
-                    means your guessed weapon shares a way of being obtained with
-                    the correct weapon, indicating that there's an overlap.
+                    • <span class="text-yellow-500">Yellow</span> (only for obtained)
+                    means the guessed weapon shares a way of being obtained with
+                    the WOTD, indicating that there's an overlap.
                 </p>
                 <p>
-                    <span class="text-red-500">Red</span> means that the stat is
-                    wrong. There are white arrows to indicate whether you are lower
-                    or higher than the actual stat.
+                    • <span class="text-red-500">Red</span> means that the stat is
+                    wrong. For each stat, there will be arrows indicating whether the guessed weapon's stat needs to be higher 
+                    or lower to match the WOTD's corresponding stat.
                 </p>
-                <p>
-                    ex) Damage: 54↑ means that today's weapon's damage stat is
-                    higher than 54, so you need to aim for a weapon with a
-                    higher damage stat.
+                <p class="ml-3">
+                    ex) Damage: 54↑ means that the damage stat of the WOTD is
+                    higher than 54.
                 </p>
                 <p class="mt-2">
-                    Rarity can help tell you what stage of the game the weapon
-                    is available.
+                    • Rarity can help tell what stage of the game the weapon
+                    is available in.
                 </p>
-                <p>
+                <p class="ml-3">
                     Weapons of the same rarity are obtainable at the same stage
                     of the game.
                 </p>
-                <p>
+                <p class="ml-3">
                     For more information about rarities, visit <a
                         href="https://terraria.wiki.gg/wiki/Rarity"
+                        target="_blank"
                         class="hover:underline"
                         >https://terraria.wiki.gg/wiki/Rarity</a
                     >
                 </p>
                 <p class="mt-2">
-                    Consumables, Tools, and Phasesabers are not included in the
+                    • Consumables, Tools, and Phasesabers are not included in the
                     game.
                 </p>
                 <p class="mt-2">
-                    Weapons that can be shimmered are considered materials.
+                    • Weapons that can be shimmered are considered materials.
                 </p>
-                <p>
+                <p class="ml-3">
                     Weapons that can be obtained through shimmering is
                     considered to be obtainable by crafting.
                 </p>
