@@ -171,7 +171,10 @@
                 data.weapons[weaponNames.indexOf(inputValue)]
             )
         ) {
-            if (submittedWeapons.length == 0) {
+            if (
+                submittedWeapons.length == 0 &&
+                inputValue != correctWeapon.name
+            ) {
                 reportResult(0);
             }
             submittedWeapons = [
@@ -206,11 +209,16 @@
                 "&success=" +
                 success.toString() +
                 "&token=" +
-                localStorage.getItem("token"),
-            {
-                credentials: "include",
-            }
+                encodeURIComponent(localStorage.getItem("token"))
         );
+        localStorage.setItem("rank", (await response.json()).rank);
+    }
+
+    async function getRank() {
+        if (localStorage.getItem("rank") == null) {
+            await new Promise((resolve) => setTimeout(resolve, 500));
+        }
+        return localStorage.getItem("rank");
     }
 
     onMount(() => {
@@ -224,6 +232,7 @@
         ) {
             localStorage.removeItem("sessionDate");
             localStorage.removeItem("submittedWeapons");
+            localStorage.removeItem("rank");
         }
         localStorage.setItem(
             "sessionDate",
@@ -457,7 +466,19 @@
 
         {#if gameFinished}
             <div class="mx-auto w-80 h-fit flex flex-col gap-y-2 p-2">
-                <p class="my-2 mx-auto text-2xl">
+                {#await getRank()}
+                    <p class="mx-auto">Loading...</p>
+                {:then rank}
+                    <p class="mx-auto">
+                        You are the {rank +
+                            (parseInt(rank) % 10 == 1
+                                ? "st"
+                                : parseInt(rank) % 10 == 2
+                                ? "nd"
+                                : "th")} to guess today's weapon!
+                    </p>
+                {/await}
+                <p class="mb-2 mx-auto text-2xl">
                     {#if diff > 0}
                         Next quiz in {nextQuiz.join(":")}
                     {:else}
