@@ -735,15 +735,15 @@
                     on the stats and hints provided throughout the game.
                 </p>
                 <p class="mt-2">
-                    For every weapon you submit, each stats will appear as <span
+                    For every weapon you submit, each stat will appear as <span
                         class="text-green-500">green</span
                     >, <span class="text-amber-500">yellow</span>, or
                     <span class="text-red-500">red</span> depending on how close
-                    it is to today's weapon's stat.
+                    it is to today's weapon's stats.
                 </p>
                 <p class="mt-2">
-                    <span class="text-green-500">Green</span> means that the stat
-                    is identical to the matching stat of today's weapon.
+                    <span class="text-green-500">Green</span> means the stat is identical
+                    to that of today's weapon.
                 </p>
                 <p>
                     <span class="text-yellow-500">Yellow</span> means that there
@@ -765,8 +765,7 @@
                 <p>Tools such as pickaxes are not included in the game.</p>
                 <p>Phasesabers are not included in the game.</p>
                 <p class="mt-2">
-                    Weapons that can be shimmered into a different weapon is
-                    considered a material.
+                    Weapons that can be shimmered are considered materials.
                 </p>
                 <p>
                     Weapons that can be obtained through shimmering is
