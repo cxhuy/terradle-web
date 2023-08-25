@@ -767,8 +767,9 @@
                     to that of today's weapon.
                 </p>
                 <p>
-                    <span class="text-yellow-500">Yellow</span> means that there
-                    are overlapping stats with today's weapon (only for obtained).
+                    <span class="text-yellow-500">Yellow</span> (only for obtained)
+                    means your guessed weapon shares a way of being obtained with
+                    the correct weapon, indicating that there's an overlap.
                 </p>
                 <p>
                     <span class="text-red-500">Red</span> means that the stat is
@@ -781,10 +782,24 @@
                     higher damage stat.
                 </p>
                 <p class="mt-2">
-                    Consumables such as grenades are not included in the game.
+                    Rarity can help tell you what stage of the game the weapon
+                    is available.
                 </p>
-                <p>Tools such as pickaxes are not included in the game.</p>
-                <p>Phasesabers are not included in the game.</p>
+                <p>
+                    Weapons of the same rarity are obtainable at the same stage
+                    of the game.
+                </p>
+                <p>
+                    For more information about rarities, visit <a
+                        href="https://terraria.wiki.gg/wiki/Rarity"
+                        class="hover:underline"
+                        >https://terraria.wiki.gg/wiki/Rarity</a
+                    >
+                </p>
+                <p class="mt-2">
+                    Consumables, Tools, and Phasesabers are not included in the
+                    game.
+                </p>
                 <p class="mt-2">
                     Weapons that can be shimmered are considered materials.
                 </p>
