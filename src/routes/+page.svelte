@@ -523,9 +523,7 @@
                         </li>
                         <li>
                             <p>
-                                {[correctWeapon.knockback, "knockback"].join(
-                                    " "
-                                )}
+                                {correctWeapon.knockback.toLowerCase() != "no knockback" ? [correctWeapon.knockback, "knockback"].join(" ") : "No Knockback"}
                             </p>
                         </li>
                         {#if correctWeapon.material}
