@@ -547,6 +547,7 @@
         {/if}
 
         {#if submittedWeapons.length == 0}
+            <p class="mt-1 text-center">{data.initialData.successCount} people have guessed today's weapon!</p>
             <div class="mt-6 flex flex-col justify-center items-center text-xl">
                 <p>Yesterday's weapon was...</p>
                 <img
