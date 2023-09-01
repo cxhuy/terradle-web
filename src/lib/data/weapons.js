@@ -5746,7 +5746,8 @@ export const weaponData = [
             "rarity": "1",
             "sell": "60 Silver Coins",
             "obtained": [
-                "Crafting"
+                "Chest",
+                "Drop"
             ],
             "material": true
         }
