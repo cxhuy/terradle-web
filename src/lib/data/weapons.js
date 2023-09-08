@@ -3225,7 +3225,7 @@ export const weaponData = [
             "obtained": [
                 "Chest"
             ],
-            "material": false
+            "material": true
         }
     },
     {
