@@ -475,6 +475,8 @@
                                 ? "st"
                                 : parseInt(rank) % 10 == 2
                                 ? "nd"
+                                : parseInt(rank) % 10 == 3
+                                ? "rd"
                                 : "th")} to guess today's weapon!
                     </p>
                 {/await}
@@ -523,7 +525,13 @@
                         </li>
                         <li>
                             <p>
-                                {correctWeapon.knockback.toLowerCase() != "no knockback" ? [correctWeapon.knockback, "knockback"].join(" ") : "No Knockback"}
+                                {correctWeapon.knockback.toLowerCase() !=
+                                "no knockback"
+                                    ? [
+                                          correctWeapon.knockback,
+                                          "knockback",
+                                      ].join(" ")
+                                    : "No Knockback"}
                             </p>
                         </li>
                         {#if correctWeapon.material}
@@ -545,7 +553,9 @@
         {/if}
 
         {#if submittedWeapons.length == 0}
-            <p class="mt-1 text-center">{data.initialData.successCount} people have guessed today's weapon!</p>
+            <p class="mt-1 text-center">
+                {data.initialData.successCount} people have guessed today's weapon!
+            </p>
             <div class="mt-6 flex flex-col justify-center items-center text-xl">
                 <p>Yesterday's weapon was...</p>
                 <img
@@ -746,13 +756,11 @@
             </button>
         </div>
         {#if showHowToPlay}
-            <div
-                class="w-80 mx-auto md:w-fit text-lg flex-col"
-                transition:fade
-            >
+            <div class="w-80 mx-auto md:w-fit text-lg flex-col" transition:fade>
                 <p>
-                    • The objective of this game is to guess the WOTD (weapon of the day) based
-                    on the stats and hints provided throughout the game.
+                    • The objective of this game is to guess the WOTD (weapon of
+                    the day) based on the stats and hints provided throughout
+                    the game.
                 </p>
                 <p class="mt-2">
                     • For every weapon submitted, each stat will appear as <span
@@ -762,8 +770,8 @@
                     it is to the stats of the WOTD.
                 </p>
                 <p class="mt-2">
-                    • <span class="text-green-500">Green</span> means the stat is identical
-                    to that of the WOTD.
+                    • <span class="text-green-500">Green</span> means the stat is
+                    identical to that of the WOTD.
                 </p>
                 <p>
                     • <span class="text-yellow-500">Yellow</span> (only for obtained)
@@ -772,16 +780,17 @@
                 </p>
                 <p>
                     • <span class="text-red-500">Red</span> means that the stat is
-                    wrong. For each stat, there will be arrows indicating whether the guessed weapon's stat needs to be higher 
-                    or lower to match the WOTD's corresponding stat.
+                    wrong. For each stat, there will be arrows indicating whether
+                    the guessed weapon's stat needs to be higher or lower to match
+                    the WOTD's corresponding stat.
                 </p>
                 <p class="ml-3">
                     ex) Damage: 54↑ means that the damage stat of the WOTD is
                     higher than 54.
                 </p>
                 <p class="mt-2">
-                    • Rarity can help tell what stage of the game the weapon
-                    is available in.
+                    • Rarity can help tell what stage of the game the weapon is
+                    available in.
                 </p>
                 <p class="ml-3">
                     Weapons of the same rarity are obtainable at the same stage
@@ -796,8 +805,8 @@
                     >
                 </p>
                 <p class="mt-2">
-                    • Consumables, Tools, and Phasesabers are not included in the
-                    game.
+                    • Consumables, Tools, and Phasesabers are not included in
+                    the game.
                 </p>
                 <p class="mt-2">
                     • Weapons that can be shimmered are considered materials.
