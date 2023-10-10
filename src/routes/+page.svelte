@@ -465,6 +465,9 @@
         </div>
 
         {#if gameFinished}
+            <p class="mt-1 text-center">
+                {data.initialData.successCount} people have guessed today's weapon!
+            </p>
             <div class="mx-auto w-80 h-fit flex flex-col gap-y-2 p-2">
                 {#await getRank()}
                     <p class="mx-auto">Loading...</p>
