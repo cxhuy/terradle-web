@@ -52,8 +52,8 @@
     $: gameFinished = submittedWeapons.includes(correctWeapon);
 
     $: hint1 = 3 - submittedWeapons.length > 0 && !gameFinished;
-    $: hint2 = 8 - submittedWeapons.length > 0 && !gameFinished;
-    $: hint3 = 15 - submittedWeapons.length > 0 && !gameFinished;
+    $: hint2 = 7 - submittedWeapons.length > 0 && !gameFinished;
+    $: hint3 = 11 - submittedWeapons.length > 0 && !gameFinished;
 
     const handleHints = (hintToShow: number) => {
         if (hintsToShow[hintToShow]) {
