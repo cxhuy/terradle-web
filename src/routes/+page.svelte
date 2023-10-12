@@ -325,7 +325,7 @@
                             <p class="mx-auto">Tooltip</p>
                             <p class="mx-auto">
                                 {#if hint2}
-                                    in {8 - submittedWeapons.length} tries...
+                                    in {7 - submittedWeapons.length} tries...
                                 {:else if !hintsToShow[1]}
                                     click to reveal
                                 {/if}
@@ -350,7 +350,7 @@
                             <p class="mx-auto">Image</p>
                             <p class="mx-auto">
                                 {#if hint3}
-                                    in {15 - submittedWeapons.length} tries...
+                                    in {11 - submittedWeapons.length} tries...
                                 {:else if !hintsToShow[2]}
                                     click to reveal
                                 {/if}
