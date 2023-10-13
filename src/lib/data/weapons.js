@@ -7395,6 +7395,27 @@ export const weaponData = [
         }
     },
     {
+        "rawName": "Wand_of_Frosting",
+        "data": {
+            "id": "5147",
+            "name": "Wand of Frosting",
+            "autoswing": false,
+            "damage": "15",
+            "damageType": "Magic",
+            "knockback": "No knockback",
+            "speed": "Average",
+            "tooltip": [
+                "Shoots a little frost"
+            ],
+            "rarity": "1",
+            "sell": "15 Silver Coins",
+            "obtained": [
+                "Crafting"
+            ],
+            "material": false
+        }
+    },
+    {
         "rawName": "Wand_of_Sparking",
         "data": {
             "id": "3069",
