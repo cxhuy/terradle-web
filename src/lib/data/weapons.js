@@ -267,6 +267,24 @@ export const weaponData = [
         }
     },
     {
+        "rawName": "Ash_Wood_Bow",
+        "data": {
+            "id": "5282",
+            "name": "Ash Wood Bow",
+            "autoswing": false,
+            "damage": "10",
+            "damageType": "Ranged",
+            "knockback": "No knockback",
+            "speed": "Fast",
+            "rarity": "0",
+            "sell": "20 Copper Coins",
+            "obtained": [
+                "Crafting"
+            ],
+            "material": false
+        }
+    },
+    {
         "rawName": "Ash_Wood_Sword",
         "data": {
             "id": "5284",
