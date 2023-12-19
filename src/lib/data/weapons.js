@@ -5574,7 +5574,7 @@ export const weaponData = [
             "id": "4760",
             "name": "Sergeant United Shield",
             "autoswing": false,
-            "damage": "92",
+            "damage": "80",
             "damageType": "Melee",
             "knockback": "Very weak",
             "speed": "Very slow",
