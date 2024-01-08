@@ -474,12 +474,16 @@
                 {:then rank}
                     <p class="mx-auto">
                         You are the {rank +
-                            (parseInt(rank) % 10 == 1
+                            /*This check will fail if that was the 11th, 111th, 211th, ... guess even if the number ends in 1.*/
+                            (parseInt(rank) % 10 == 1 && parseInt(rank) % 100 != 11 
                                 ? "st"
-                                : parseInt(rank) % 10 == 2
+                            /*This check will fail if that was the 12th, 112th, 212th, ... guess even if the number ends in 2.*/
+                                : parseInt(rank) % 10 == 2 && parseInt(rank) % 100 != 12
                                 ? "nd"
-                                : parseInt(rank) % 10 == 3
+                            /*This check will fail if that was the 13th, 113th, 213th, ... guess even if the number ends in 3.*/
+                                : parseInt(rank) % 10 == 3 && parseInt(rank) % 100 != 13
                                 ? "rd"
+                            /*Any number ending in 11, 12 or 13 will land here as appropriate in the English grammar the suffix of the ordinal is "th"*/
                                 : "th")} to guess today's weapon!
                     </p>
                 {/await}
