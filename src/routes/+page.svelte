@@ -3,6 +3,7 @@
     import { PUBLIC_APIPATH } from "$env/static/public";
     import { fade } from "svelte/transition";
     import WeaponHint from "$lib/components/weaponQuiz/weaponHint.svelte";
+    import Footer from "$lib/components/global/footer.svelte";
     export let data;
 
     let showHowToPlay: boolean = false;
@@ -716,14 +717,7 @@
                 </p>
             </div>
         {/if}
-        <p class="mt-4 w-full text-center text-xl">
-            Made by <a
-                class="hover:underline"
-                style="color: #FFFF0A"
-                href="https://github.com/cxhuy"
-                target="_blank">cxhuy</a
-            >
-        </p>
+        <Footer/>
     </main>
 {/if}
 
