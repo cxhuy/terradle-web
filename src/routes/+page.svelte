@@ -2,7 +2,7 @@
     import { onMount } from "svelte";
     import { PUBLIC_APIPATH } from "$env/static/public";
     import { fade } from "svelte/transition";
-    import WeaponHint from "$lib/components/weaponHint.svelte";
+    import WeaponHint from "$lib/components/weaponQuiz/weaponHint.svelte";
     export let data;
 
     let showHowToPlay: boolean = false;
