@@ -371,11 +371,11 @@
                                 .includes('gold')
                                 ? 'text-[#C1AD4F]'
                                 : correctWeapon.sell
-                                      .toLowerCase()
-                                      .split(' ')
-                                      .includes('silver')
-                                ? 'text-[#A0AEAE]'
-                                : 'text-[#AB6156]'}"
+                                        .toLowerCase()
+                                        .split(' ')
+                                        .includes('silver')
+                                  ? 'text-[#A0AEAE]'
+                                  : 'text-[#AB6156]'}"
                         >
                             {"Sell price: " +
                                 correctWeapon.sell
@@ -475,16 +475,19 @@
                     <p class="mx-auto">
                         You are the {rank +
                             /*This check will fail if that was the 11th, 111th, 211th, ... guess even if the number ends in 1.*/
-                            (parseInt(rank) % 10 == 1 && parseInt(rank) % 100 != 11 
+                            (parseInt(rank) % 10 == 1 &&
+                            parseInt(rank) % 100 != 11
                                 ? "st"
-                            /*This check will fail if that was the 12th, 112th, 212th, ... guess even if the number ends in 2.*/
-                                : parseInt(rank) % 10 == 2 && parseInt(rank) % 100 != 12
-                                ? "nd"
-                            /*This check will fail if that was the 13th, 113th, 213th, ... guess even if the number ends in 3.*/
-                                : parseInt(rank) % 10 == 3 && parseInt(rank) % 100 != 13
-                                ? "rd"
-                            /*Any number ending in 11, 12 or 13 will land here as appropriate in the English grammar the suffix of the ordinal is "th"*/
-                                : "th")} to guess today's weapon!
+                                : /*This check will fail if that was the 12th, 112th, 212th, ... guess even if the number ends in 2.*/
+                                  parseInt(rank) % 10 == 2 &&
+                                    parseInt(rank) % 100 != 12
+                                  ? "nd"
+                                  : /*This check will fail if that was the 13th, 113th, 213th, ... guess even if the number ends in 3.*/
+                                    parseInt(rank) % 10 == 3 &&
+                                      parseInt(rank) % 100 != 13
+                                    ? "rd"
+                                    : /*Any number ending in 11, 12 or 13 will land here as appropriate in the English grammar the suffix of the ordinal is "th"*/
+                                      "th")} to guess today's weapon!
                     </p>
                 {/await}
                 <p class="mb-2 mx-auto text-2xl">
@@ -824,7 +827,14 @@
                 </p>
             </div>
         {/if}
-        <p class="mt-4 w-full text-center text-xl">Made by <a class="hover:underline" style="color: #FFFF0A" href="https://github.com/cxhuy" target="_blank">cxhuy</a></p>
+        <p class="mt-4 w-full text-center text-xl">
+            Made by <a
+                class="hover:underline"
+                style="color: #FFFF0A"
+                href="https://github.com/cxhuy"
+                target="_blank">cxhuy</a
+            >
+        </p>
     </main>
 {/if}
 
