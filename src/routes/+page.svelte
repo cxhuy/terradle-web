@@ -2,6 +2,7 @@
     import { onMount } from "svelte";
     import { PUBLIC_APIPATH } from "$env/static/public";
     import { fade } from "svelte/transition";
+    import WeaponHint from "$lib/components/weaponHint.svelte";
     export let data;
 
     let showHowToPlay: boolean = false;
@@ -55,14 +56,14 @@
     $: hint2 = 7 - submittedWeapons.length > 0 && !gameFinished;
     $: hint3 = 11 - submittedWeapons.length > 0 && !gameFinished;
 
-    const handleHints = (hintToShow: number) => {
-        if (hintsToShow[hintToShow]) {
-            hintsToShow[hintToShow] = false;
+    const handleHints = (event: Object) => {
+        if (hintsToShow[event.detail.hint]) {
+            hintsToShow[event.detail.hint] = false;
         } else {
             for (let i = 0; i < hintsToShow.length; i++) {
                 hintsToShow[i] = false;
             }
-            hintsToShow[hintToShow] = true;
+            hintsToShow[event.detail.hint] = true;
         }
     };
 
@@ -268,6 +269,13 @@
             clearInterval(interval);
         };
     });
+
+    $: weaponHintData = {
+        hints: [hint1, hint2, hint3],
+        submittedWeaponsLength: submittedWeapons.length,
+        hintsToShow: hintsToShow,
+        correctWeapon: correctWeapon
+    }
 </script>
 
 {#if syncedLocalStorage}
@@ -281,126 +289,7 @@
             <div
                 class="mx-auto w-80 h-fit bg-[#1C2443]/95 border-[1.5px] border-black rounded-xl flex flex-col pt-8 px-2"
             >
-                <div class="w-full flex gap-2 mb-2">
-                    <button
-                        disabled={hint1}
-                        class="w-full h-fit {hint1 ? 'cursor-default' : ''}"
-                        on:click={() => handleHints(0)}
-                    >
-                        <div
-                            class="w-full h-fit {hint1
-                                ? 'bg-[#2C3A74]/50 border-black'
-                                : 'transition ease-in-out hover:brightness-125 duration-300 bg-[#2C3A74]'} border-[1.5px] rounded-lg text-xs text-center flex flex-col py-1 px-2"
-                        >
-                            <img
-                                class="my-1 h-8 object-contain"
-                                src="/images/weapons_hint/selling_price_hint.png"
-                                alt="selling price"
-                            />
-                            <p class="mx-auto">Selling price</p>
-                            <p>
-                                {#if hint1}
-                                    in {3 - submittedWeapons.length} tries...
-                                {:else if !hintsToShow[0]}
-                                    click to reveal
-                                {/if}
-                            </p>
-                        </div>
-                    </button>
-                    <button
-                        disabled={hint2}
-                        class="w-full h-fit {hint2 ? 'cursor-default' : ''}"
-                        on:click={() => handleHints(1)}
-                    >
-                        <div
-                            class="w-full h-fit {hint2
-                                ? 'bg-[#2C3A74]/50 border-black'
-                                : 'transition ease-in-out hover:brightness-125 duration-300 bg-[#2C3A74]'} border-[1.5px] rounded-lg text-xs text-center flex flex-col py-1 px-2"
-                        >
-                            <img
-                                class="my-1 h-8 object-contain"
-                                src="/images/weapons_hint/tooltip_hint.png"
-                                alt="tooltip"
-                            />
-                            <p class="mx-auto">Tooltip</p>
-                            <p class="mx-auto">
-                                {#if hint2}
-                                    in {7 - submittedWeapons.length} tries...
-                                {:else if !hintsToShow[1]}
-                                    click to reveal
-                                {/if}
-                            </p>
-                        </div>
-                    </button>
-                    <button
-                        disabled={hint3}
-                        class="w-full h-fit {hint3 ? 'cursor-default' : ''}"
-                        on:click={() => handleHints(2)}
-                    >
-                        <div
-                            class="w-full h-fit {hint3
-                                ? 'bg-[#2C3A74]/50 border-black'
-                                : 'transition ease-in-out hover:brightness-125 duration-300 bg-[#2C3A74]'} border-[1.5px] rounded-lg text-xs text-center flex flex-col py-1 px-2"
-                        >
-                            <img
-                                class="my-1 h-8 object-contain"
-                                src="/images/weapons_hint/image_hint.png"
-                                alt="weapon image"
-                            />
-                            <p class="mx-auto">Image</p>
-                            <p class="mx-auto">
-                                {#if hint3}
-                                    in {11 - submittedWeapons.length} tries...
-                                {:else if !hintsToShow[2]}
-                                    click to reveal
-                                {/if}
-                            </p>
-                        </div>
-                    </button>
-                </div>
-                <div
-                    class="{!hintsToShow.includes(true)
-                        ? 'hidden'
-                        : ''} w-full h-fit p-2 mb-2 bg-[#2C3A74] rounded-lg flex items-center text-center"
-                >
-                    {#if hintsToShow[0]}
-                        <p
-                            class="w-full {correctWeapon.sell
-                                .toLowerCase()
-                                .split(' ')
-                                .includes('gold')
-                                ? 'text-[#C1AD4F]'
-                                : correctWeapon.sell
-                                        .toLowerCase()
-                                        .split(' ')
-                                        .includes('silver')
-                                  ? 'text-[#A0AEAE]'
-                                  : 'text-[#AB6156]'}"
-                        >
-                            {"Sell price: " +
-                                correctWeapon.sell
-                                    ?.replace("Coins", "")
-                                    .replace("Coin", "")
-                                    .toLowerCase()}
-                        </p>
-                    {:else if hintsToShow[1]}
-                        <p class="w-full">
-                            {#if correctWeapon.tooltip}
-                                {correctWeapon.tooltip
-                                    ?.join("\n")
-                                    .replace(/(?<=\w{2})[^\s!%&'",.?]/g, "-")}
-                            {:else}
-                                There is no tooltip for this item.
-                            {/if}
-                        </p>
-                    {:else if hintsToShow[2]}
-                        <img
-                            class="w-16 h-16 mx-auto object-contain blur-sm"
-                            src={"/images/weapons/" + correctWeapon.id + ".png"}
-                            alt="weapon image hint"
-                        />
-                    {/if}
-                </div>
+                <WeaponHint {weaponHintData} on:handleHints={handleHints}/>
                 {#if !gameFinished}
                     <div class="w-full mb-2">
                         <form
