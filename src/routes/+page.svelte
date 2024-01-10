@@ -28,23 +28,7 @@
         "#B428FF",
     ];
 
-    let hintsToShow: boolean[] = [false, false, false];
     $: gameFinished = submittedWeapons.includes(correctWeapon);
-
-    $: hint1 = 3 - submittedWeapons.length > 0 && !gameFinished;
-    $: hint2 = 7 - submittedWeapons.length > 0 && !gameFinished;
-    $: hint3 = 11 - submittedWeapons.length > 0 && !gameFinished;
-
-    const handleHints = (event: Object) => {
-        if (hintsToShow[event.detail.hint]) {
-            hintsToShow[event.detail.hint] = false;
-        } else {
-            for (let i = 0; i < hintsToShow.length; i++) {
-                hintsToShow[i] = false;
-            }
-            hintsToShow[event.detail.hint] = true;
-        }
-    };
 
     const haveOverlappingElements = (arr1: any[], arr2: any[]) => {
         for (let i = 0; i < arr1.length; i++) {
@@ -225,17 +209,13 @@
             );
         }
         gameFinished = submittedWeapons.includes(correctWeapon);
-        hint1 = 3 - submittedWeapons.length > 0 && !gameFinished;
-        hint2 = 8 - submittedWeapons.length > 0 && !gameFinished;
-        hint3 = 15 - submittedWeapons.length > 0 && !gameFinished;
         syncedLocalStorage = true;
     });
 
     $: weaponHintData = {
-        hints: [hint1, hint2, hint3],
-        submittedWeaponsLength: submittedWeapons.length,
-        hintsToShow: hintsToShow,
-        correctWeapon: correctWeapon
+        submittedWeapons: submittedWeapons,
+        correctWeapon: correctWeapon,
+        gameFinished: gameFinished
     }
 
     $: gameResultData = {
@@ -256,7 +236,7 @@
             <div
                 class="mx-auto w-80 h-fit bg-[#1C2443]/95 border-[1.5px] border-black rounded-xl flex flex-col pt-8 px-2"
             >
-                <WeaponHint {weaponHintData} on:handleHints={handleHints}/>
+                <WeaponHint {weaponHintData}/>
                 {#if !gameFinished}
                     <div class="w-full mb-2">
                         <form
