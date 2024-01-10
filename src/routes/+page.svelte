@@ -1,9 +1,11 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import { PUBLIC_APIPATH } from "$env/static/public";
+    import { fade } from "svelte/transition";
     import WeaponHint from "$lib/components/weaponQuiz/weaponHint.svelte";
     import Footer from "$lib/components/global/footer.svelte";
     import HowToPlay from "$lib/components/weaponQuiz/howToPlay.svelte";
+    import GameResult from "$lib/components/weaponQuiz/gameResult.svelte";
     export let data;
 
     let syncedLocalStorage: boolean = false;
@@ -24,28 +26,6 @@
         "#05C8FF",
         "#FF2864",
         "#B428FF",
-    ];
-
-    let date: Date = new Date(
-        new Date().toLocaleString("en-US", {
-            timeZone: "America/Chicago",
-        })
-    );
-    let midnight: Date = new Date(date);
-    midnight.setHours(24, 0, 0, 0);
-
-    $: diff = midnight.getTime() - date.getTime();
-
-    $: nextQuiz = [
-        Math.floor(diff / (1000 * 60 * 60))
-            .toString()
-            .padStart(2, "0"),
-        Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))
-            .toString()
-            .padStart(2, "0"),
-        Math.floor((diff % (1000 * 60)) / 1000)
-            .toString()
-            .padStart(2, "0"),
     ];
 
     let hintsToShow: boolean[] = [false, false, false];
@@ -214,13 +194,6 @@
         localStorage.setItem("rank", (await response.json()).rank);
     }
 
-    async function getRank() {
-        if (localStorage.getItem("rank") == null) {
-            await new Promise((resolve) => setTimeout(resolve, 500));
-        }
-        return localStorage.getItem("rank");
-    }
-
     onMount(() => {
         if (localStorage.getItem("token") == null) {
             localStorage.setItem("token", data.initialData.token);
@@ -256,17 +229,6 @@
         hint2 = 8 - submittedWeapons.length > 0 && !gameFinished;
         hint3 = 15 - submittedWeapons.length > 0 && !gameFinished;
         syncedLocalStorage = true;
-        const interval = setInterval(() => {
-            date = new Date(
-                new Date().toLocaleString("en-US", {
-                    timeZone: "America/Chicago",
-                })
-            );
-        }, 1000);
-
-        return () => {
-            clearInterval(interval);
-        };
     });
 
     $: weaponHintData = {
@@ -274,6 +236,12 @@
         submittedWeaponsLength: submittedWeapons.length,
         hintsToShow: hintsToShow,
         correctWeapon: correctWeapon
+    }
+
+    $: gameResultData = {
+        gameFinished: gameFinished,
+        correctWeapon: correctWeapon,
+        data: data
     }
 </script>
 
@@ -352,103 +320,7 @@
             </div>
         </div>
 
-        {#if gameFinished}
-            <p class="mt-1 text-center">
-                {data.initialData.successCount} people have guessed today's weapon!
-            </p>
-            <div class="mx-auto w-80 h-fit flex flex-col gap-y-2 p-2">
-                {#await getRank()}
-                    <p class="mx-auto">Loading...</p>
-                {:then rank}
-                    <p class="mx-auto">
-                        You are the {rank +
-                            /*This check will fail if that was the 11th, 111th, 211th, ... guess even if the number ends in 1.*/
-                            (parseInt(rank) % 10 == 1 &&
-                            parseInt(rank) % 100 != 11
-                                ? "st"
-                                : /*This check will fail if that was the 12th, 112th, 212th, ... guess even if the number ends in 2.*/
-                                  parseInt(rank) % 10 == 2 &&
-                                    parseInt(rank) % 100 != 12
-                                  ? "nd"
-                                  : /*This check will fail if that was the 13th, 113th, 213th, ... guess even if the number ends in 3.*/
-                                    parseInt(rank) % 10 == 3 &&
-                                      parseInt(rank) % 100 != 13
-                                    ? "rd"
-                                    : /*Any number ending in 11, 12 or 13 will land here as appropriate in the English grammar the suffix of the ordinal is "th"*/
-                                      "th")} to guess today's weapon!
-                    </p>
-                {/await}
-                <p class="mb-2 mx-auto text-2xl">
-                    {#if diff > 0}
-                        Next quiz in {nextQuiz.join(":")}
-                    {:else}
-                        <span class="text-xl"
-                            >Refresh the page for the next quiz!</span
-                        >
-                    {/if}
-                </p>
-                <div class="flex gap-x-2">
-                    <img
-                        class="mx-auto w-20 h-20 object-contain bg-[#2C3A74] p-2 border-2 border-black rounded-lg"
-                        src={"/images/weapons/" + correctWeapon.id + ".png"}
-                        alt={correctWeapon.name}
-                    />
-                </div>
-                <div
-                    class="w-full h-fit mx-auto bg-[#1C2443]/95 p-4 border-2 border-black rounded-lg"
-                >
-                    <ul class="text-xl">
-                        <li>
-                            <p
-                                style="color: {rarityColors[
-                                    parseInt(correctWeapon.rarity)
-                                ].toLowerCase()};"
-                            >
-                                {correctWeapon.name}
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                {[
-                                    correctWeapon.damage,
-                                    correctWeapon.damageType.toLowerCase(),
-                                    "damage",
-                                ].join(" ")}
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                {[correctWeapon.speed, "speed"].join(" ")}
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                {correctWeapon.knockback.toLowerCase() !=
-                                "no knockback"
-                                    ? [
-                                          correctWeapon.knockback,
-                                          "knockback",
-                                      ].join(" ")
-                                    : "No Knockback"}
-                            </p>
-                        </li>
-                        {#if correctWeapon.material}
-                            <li>
-                                <p>Material</p>
-                            </li>
-                        {/if}
-
-                        {#if correctWeapon.tooltip != undefined}
-                            {#each correctWeapon.tooltip as tooltip}
-                                <li>
-                                    <p>{tooltip}</p>
-                                </li>
-                            {/each}
-                        {/if}
-                    </ul>
-                </div>
-            </div>
-        {/if}
+        <GameResult { gameResultData }/>
 
         {#if submittedWeapons.length == 0}
             <p class="mt-1 text-center">
