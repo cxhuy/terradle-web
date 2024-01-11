@@ -5,6 +5,7 @@
     import HowToPlay from "$lib/components/weaponQuiz/howToPlay.svelte";
     import GameResult from "$lib/components/weaponQuiz/gameResult.svelte";
     import QuizMain from "$lib/components/global/quizMain.svelte";
+    import GameStartInfo from "$lib/components/global/gameStartInfo.svelte";
     export let data;
 
     let syncedLocalStorage: boolean = false;
@@ -135,6 +136,13 @@
         data: data,
         weaponNames: weaponNames,
     };
+
+    let gameStartInfoData = {
+        successCount: data.initialData.successCount,
+        quizType: "weapon",
+        yesterday: yesterdayWeapon,
+        color: rarityColors[parseInt(yesterdayWeapon.rarity)].toLowerCase()
+    };
 </script>
 
 {#if syncedLocalStorage}
@@ -144,28 +152,7 @@
         <GameResult {gameResultData} />
 
         {#if submittedWeapons.length == 0}
-            <p class="mt-1 text-center">
-                {data.initialData.successCount} people have guessed today's weapon!
-            </p>
-            <div class="mt-6 flex flex-col justify-center items-center text-xl">
-                <p>Yesterday's weapon was...</p>
-                <img
-                    style="border-color: {rarityColors[
-                        parseInt(yesterdayWeapon.rarity)
-                    ].toLowerCase()};"
-                    class="mt-2 p-2 w-16 h-16 ml-1 bg-black/60 object-contain roudned-lg border-2"
-                    src={"/images/weapons/" + yesterdayWeapon.id + ".png"}
-                    alt={yesterdayWeapon.name}
-                />
-                <p
-                    style="color: {rarityColors[
-                        parseInt(yesterdayWeapon.rarity)
-                    ].toLowerCase()};"
-                    class="mt-1"
-                >
-                    {yesterdayWeapon.name}
-                </p>
-            </div>
+            <GameStartInfo {gameStartInfoData} />
         {:else}
             <div class="mx-auto w-80 md:w-full overflow-auto">
                 <div
