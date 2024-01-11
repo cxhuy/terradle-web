@@ -92,7 +92,6 @@
     });
 
     $: gameResultData = {
-        gameFinished: gameFinished,
         correctWeapon: correctWeapon,
         data: data,
     };
@@ -110,21 +109,22 @@
         successCount: data.initialData.successCount,
         quizType: "weapon",
         yesterday: yesterdayWeapon,
-        color: rarityColors[parseInt(yesterdayWeapon.rarity)].toLowerCase()
+        color: rarityColors[parseInt(yesterdayWeapon.rarity)].toLowerCase(),
     };
 
     $: submittedListData = {
         submittedWeapons: submittedWeapons,
         correctWeapon: correctWeapon,
-
-    }
+    };
 </script>
 
 {#if syncedLocalStorage}
     <main class="-translate-y-4">
         <QuizMain {quizMainData} on:submit={submitWeapon} />
 
-        <GameResult {gameResultData} />
+        {#if gameFinished}
+            <GameResult {gameResultData} />
+        {/if}
 
         {#if submittedWeapons.length == 0}
             <GameStartInfo {gameStartInfoData} />

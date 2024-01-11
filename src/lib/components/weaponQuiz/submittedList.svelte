@@ -62,9 +62,7 @@
                 >
                     <img
                         class="w-12 h-8 mx-auto object-contain"
-                        src={"/images/weapons/" +
-                            weapon.id +
-                            ".png"}
+                        src={"/images/weapons/" + weapon.id + ".png"}
                         alt={weapon.name}
                     />
                 </div>
@@ -132,9 +130,7 @@
                     <div class="flex items-center mx-auto">
                         <img
                             class="w-14 max-h-4 object-contain"
-                            src={"/images/rarity/" +
-                                weapon.rarity +
-                                ".png"}
+                            src={"/images/rarity/" + weapon.rarity + ".png"}
                             alt={"rarity " + weapon.rarity}
                         />
                         {#if parseInt(weapon.rarity) < parseInt(submittedListData.correctWeapon.rarity)}
