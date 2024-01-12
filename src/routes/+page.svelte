@@ -55,6 +55,10 @@
             data.weapons[weaponNames.indexOf(event.detail.inputValue)].name,
             ...submittedWeaponsName,
         ];
+        localStorage.setItem(
+            "submittedWeapons",
+            JSON.stringify(submittedWeaponsName)
+        );
     };
 
     onMount(() => {

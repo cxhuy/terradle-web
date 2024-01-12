@@ -73,10 +73,6 @@
                 reportResult(0);
             }
             dispatch("submit", { inputValue: inputValue });
-            localStorage.setItem(
-                "submittedWeapons",
-                JSON.stringify(quizMainData.submittedWeaponsName)
-            );
             if (inputValue == quizMainData.correctWeapon.name) {
                 reportResult(1);
                 alert(
