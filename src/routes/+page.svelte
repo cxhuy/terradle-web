@@ -6,6 +6,7 @@
     import QuizMain from "$lib/components/global/quizMain.svelte";
     import GameStartInfo from "$lib/components/global/gameStartInfo.svelte";
     import SubmittedList from "$lib/components/weaponQuiz/submittedList.svelte";
+    import WeaponHint from "$lib/components/weaponQuiz/weaponHint.svelte";
     export let data;
 
     let syncedLocalStorage: boolean = false;
@@ -120,11 +121,21 @@
         submittedWeapons: submittedWeapons,
         correctWeapon: correctWeapon,
     };
+
+    $: weaponHintData = {
+        submittedWeapons: submittedWeapons,
+        correctWeapon: correctWeapon,
+        gameFinished: gameFinished,
+    };
 </script>
 
 {#if syncedLocalStorage}
     <main class="-translate-y-4">
-        <QuizMain {quizMainData} on:submit={submitWeapon} />
+        <QuizMain {quizMainData} on:submit={submitWeapon}>
+            <div slot="hints">
+                <WeaponHint {weaponHintData} />
+            </div>
+        </QuizMain>
 
         {#if gameFinished}
             <GameResult {gameResultData} />

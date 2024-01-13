@@ -1,9 +1,6 @@
 <script lang="ts">
     export let quizMainData: Object;
     import { PUBLIC_APIPATH } from "$env/static/public";
-
-    import WeaponHint from "$lib/components/weaponQuiz/weaponHint.svelte";
-
     import { createEventDispatcher } from "svelte";
 
     const dispatch = createEventDispatcher();
@@ -99,12 +96,6 @@
         );
         localStorage.setItem("rank", (await response.json()).rank);
     }
-
-    $: weaponHintData = {
-        submittedWeapons: quizMainData.submittedWeapons,
-        correctWeapon: quizMainData.correctWeapon,
-        gameFinished: quizMainData.gameFinished,
-    };
 </script>
 
 <div>
@@ -116,7 +107,7 @@
     <div
         class="mx-auto w-80 h-fit bg-[#1C2443]/95 border-[1.5px] border-black rounded-xl flex flex-col pt-8 px-2"
     >
-        <WeaponHint {weaponHintData} />
+        <slot name="hints" />
         {#if !quizMainData.gameFinished}
             <div class="w-full mb-2">
                 <form autocomplete="off" on:submit|preventDefault={submitValue}>
