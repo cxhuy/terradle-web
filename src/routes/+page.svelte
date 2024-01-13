@@ -103,11 +103,12 @@
 
     $: quizMainData = {
         gameFinished: gameFinished,
-        submittedWeapons: submittedWeapons,
-        submittedWeaponsName: submittedWeaponsName,
-        correctWeapon: correctWeapon,
+        submittedElements: submittedWeapons,
+        submittedElementsName: submittedWeaponsName,
+        answer: correctWeapon,
         data: data,
-        weaponNames: weaponNames,
+        elementNames: weaponNames,
+        quizType: "weapon"
     };
 
     let gameStartInfoData = {
