@@ -74,8 +74,8 @@
                 reportResult(1);
                 alert(
                     "You Win!\nYou guessed today's " + quizMainData.quizType + " in " +
-                        quizMainData.submittedElements.length.toString() +
-                        (quizMainData.submittedElements.length == 1
+                        (quizMainData.submittedElements.length + 1).toString() +
+                        ((quizMainData.submittedElements.length + 1) == 1
                             ? " try!"
                             : " tries!")
                 );
