@@ -5694,7 +5694,7 @@ export const weaponData = [
             "id": "3053",
             "name": "Shadowflame Hex Doll",
             "autoswing": true,
-            "damage": "66",
+            "damage": "32",
             "damageType": "Magic",
             "knockback": "Weak",
             "speed": "Fast",
