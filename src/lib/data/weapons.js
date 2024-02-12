@@ -5444,7 +5444,7 @@ export const weaponData = [
                 "Buy"
             ],
             "sell": "2 Silver Coins",
-            "material": true
+            "material": false
         }
     },
     {
