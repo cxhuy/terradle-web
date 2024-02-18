@@ -6534,7 +6534,7 @@ export const weaponData = [
             "id": "5094",
             "name": "Tentacle Spike",
             "autoswing": false,
-            "damage": "19",
+            "damage": "20",
             "damageType": "Melee",
             "knockback": "Average",
             "speed": "Fast",
