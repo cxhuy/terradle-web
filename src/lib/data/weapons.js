@@ -4922,7 +4922,7 @@ export const weaponData = [
             "obtained": [
                 "Crafting"
             ],
-            "material": false
+            "material": true
         }
     },
     {

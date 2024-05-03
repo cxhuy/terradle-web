@@ -4609,7 +4609,7 @@
                 "obtained": [
                     "Crafting"
                 ],
-                "material": false
+                "material": true
             }
         },
         {
