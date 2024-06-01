@@ -6111,7 +6111,7 @@ export const weaponData = [
             "id": "5074",
             "name": "Spinal Tap",
             "autoswing": false,
-            "damage": "36",
+            "damage": "27",
             "damageType": "Summon",
             "knockback": "Very weak",
             "speed": "Average",
