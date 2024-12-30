@@ -64,8 +64,11 @@
         <p class="mt-2">
             • Weapons that can be shimmered are considered materials.
         </p>
+        <p class="mt-2">
+            • Weapons that can be obtained from crates are considered to be obtainable by chests.
+        </p>
         <p class="ml-3">
-            Weapons that can be obtained through shimmering is considered to be
+            Weapons that can be obtained through shimmering are considered to be
             obtainable by crafting.
         </p>
     </div>
