@@ -2097,7 +2097,8 @@ export const weaponData = [
             "rarity": "2",
             "sell": "3 Gold Coins",
             "obtained": [
-                "Chest"
+                "Chest",
+                "Drop"
             ],
             "material": true
         }
