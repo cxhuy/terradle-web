@@ -3336,7 +3336,7 @@ export const weaponData = [
         "data": {
             "id": "1445",
             "name": "Inferno Fork",
-            "autoswing": false,
+            "autoswing": true,
             "damage": "70",
             "damageType": "Magic",
             "knockback": "Average",
